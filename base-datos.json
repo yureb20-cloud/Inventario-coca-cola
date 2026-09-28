@@ -1,0 +1,2249 @@
+[
+  {
+    "codigo": "56452",
+    "codigoBarras": "7702535010280",
+    "producto": "SCHWEPPES SODA 400ML PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 42
+  },
+  {
+    "codigo": "56453",
+    "codigoBarras": "",
+    "producto": "SCHWEPPES GINGER 400ML PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 12
+  },
+  {
+    "codigo": "56490",
+    "codigoBarras": "",
+    "producto": "SCHWEPPES TONICA 10OZ VNR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "56497",
+    "codigoBarras": "7702535006863",
+    "producto": "SCHWEPPES GINGER 10OZ VNR(12)NvaB",
+    "unidadesPorCaja": 12,
+    "existencias": 13
+  },
+  {
+    "codigo": "56498",
+    "codigoBarras": "7702535006856",
+    "producto": "SCHWEPPES SODA 10OZ VNR(12)NvaB",
+    "unidadesPorCaja": 12,
+    "existencias": -42
+  },
+  {
+    "codigo": "56521",
+    "codigoBarras": "77053671",
+    "producto": "SPRITE SO 8OZ VIR (30)",
+    "unidadesPorCaja": 30,
+    "existencias": 0
+  },
+  {
+    "codigo": "56556",
+    "codigoBarras": "",
+    "producto": "SCHWEPPES GINGER 8OZ RGB (30)",
+    "unidadesPorCaja": 30,
+    "existencias": 0
+  },
+  {
+    "codigo": "56557",
+    "codigoBarras": "77078988",
+    "producto": "SCHWEPPES SODA 8OZ RGB (30)",
+    "unidadesPorCaja": 30,
+    "existencias": 9
+  },
+  {
+    "codigo": "56622",
+    "codigoBarras": "7702609009318",
+    "producto": "PREMIO ROJO FNT 350ML VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 2100
+  },
+  {
+    "codigo": "56624",
+    "codigoBarras": "77064257",
+    "producto": "PREMIO ROJO FNT 8OZ VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 145
+  },
+  {
+    "codigo": "56625",
+    "codigoBarras": "7702535001912",
+    "producto": "PREMIO ROJO FNT 3LT PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 123
+  },
+  {
+    "codigo": "56627",
+    "codigoBarras": "7702535012055",
+    "producto": "PREMIO ROJO FNT 400 ML PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 174
+  },
+  {
+    "codigo": "56651",
+    "codigoBarras": "7702535011768",
+    "producto": "PREMIO ROJO FNT 1.5LT PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 132
+  },
+  {
+    "codigo": "56703",
+    "codigoBarras": "77093615",
+    "producto": "QUATRO CHOICE 250ML PET (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 456
+  },
+  {
+    "codigo": "56704",
+    "codigoBarras": "77074751",
+    "producto": "QUATRO CHOICE 8OZ VIR (30)",
+    "unidadesPorCaja": 30,
+    "existencias": 255
+  },
+  {
+    "codigo": "56705",
+    "codigoBarras": "7702535005026",
+    "producto": "QUATRO CHOICE 350ML VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 7289
+  },
+  {
+    "codigo": "56706",
+    "codigoBarras": "7702535012079",
+    "producto": "QUATRO CHOICE 400ML NR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 294
+  },
+  {
+    "codigo": "56707",
+    "codigoBarras": "",
+    "producto": "QUATRO CHOICE 1LT VIR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "56709",
+    "codigoBarras": "7702535011706",
+    "producto": "QUATRO CHOICE 1.5 LT PET (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 228
+  },
+  {
+    "codigo": "56711",
+    "codigoBarras": "7702535005903",
+    "producto": "QUATRO CHOICE 3LTS PET (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 256
+  },
+  {
+    "codigo": "56751",
+    "codigoBarras": "",
+    "producto": "QUATRO CHOICE 269ML LAT(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "56753",
+    "codigoBarras": "",
+    "producto": "FANTA NARANJA 269ML LAT(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "56778",
+    "codigoBarras": "",
+    "producto": "FANTA ROJO 269ML LAT(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "56780",
+    "codigoBarras": "",
+    "producto": "6PK KOLA ROMAN LATA 269ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "56781",
+    "codigoBarras": "",
+    "producto": "6PK LAT QUATRO CHOICE 269ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "56820",
+    "codigoBarras": "7702535034101",
+    "producto": "QUATRO CHOICE 2.5L PET (8)",
+    "unidadesPorCaja": 8,
+    "existencias": 224
+  },
+  {
+    "codigo": "56841",
+    "codigoBarras": "7702535034477",
+    "producto": "FLASHLYTE UVA 625ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 19
+  },
+  {
+    "codigo": "56842",
+    "codigoBarras": "7702535034507",
+    "producto": "FLASHLYTE COCO LIM 625ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 50
+  },
+  {
+    "codigo": "56844",
+    "codigoBarras": "",
+    "producto": "PEDIGREE RAZPEQ RES 100G KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "56845",
+    "codigoBarras": "",
+    "producto": "PEDIGREE ADULTO RES 100G KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "56846",
+    "codigoBarras": "",
+    "producto": "WHISKAS FILETE RES 85G KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "56847",
+    "codigoBarras": "",
+    "producto": "WHISKAS FILET SALMON 85G KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "92736",
+    "codigoBarras": "",
+    "producto": "BRISA LIMA LIMON 600ML (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "92757",
+    "codigoBarras": "",
+    "producto": "BRISA SIN GAS 3LT PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "92764",
+    "codigoBarras": "7702535025864",
+    "producto": "MANANTIAL SIN GAS 500ML VNR(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 165
+  },
+  {
+    "codigo": "92768",
+    "codigoBarras": "77042651",
+    "producto": "BRISA MANZANA 280ML PET(24)",
+    "unidadesPorCaja": 24,
+    "existencias": 150
+  },
+  {
+    "codigo": "92769",
+    "codigoBarras": "7702535013212",
+    "producto": "BRISA MANZANA 600ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 585
+  },
+  {
+    "codigo": "92770",
+    "codigoBarras": "7702535027868",
+    "producto": "BRISA MANZANA 1.5LT PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 15
+  },
+  {
+    "codigo": "92787",
+    "codigoBarras": "",
+    "producto": "2PK BRISA MANZANA 1.5LT PET",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "92793",
+    "codigoBarras": "77024411",
+    "producto": "BRISA MARACUYA 280ML PET(24)",
+    "unidadesPorCaja": 24,
+    "existencias": -37.00000000000001
+  },
+  {
+    "codigo": "92794",
+    "codigoBarras": "7702535030660",
+    "producto": "BRISA MARACUYA 600ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 906
+  },
+  {
+    "codigo": "92795",
+    "codigoBarras": "7702535030677",
+    "producto": "BRISA MARACUYA 1.5LT PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 36
+  },
+  {
+    "codigo": "92850",
+    "codigoBarras": "",
+    "producto": "BRISA MANZANA 5L BIB",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "92854",
+    "codigoBarras": "",
+    "producto": "6PK BRISA(4MZA+2MAR)269ML LAT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "92881",
+    "codigoBarras": "",
+    "producto": "6PK BRISA(3MZ+2MAR+1LL)280ML",
+    "unidadesPorCaja": 1,
+    "existencias": 25
+  },
+  {
+    "codigo": "92892",
+    "codigoBarras": "7702535012857",
+    "producto": "BRISA LIMA LIMON 600ML PET (6)NVO",
+    "unidadesPorCaja": 6,
+    "existencias": 21
+  },
+  {
+    "codigo": "92893",
+    "codigoBarras": "77099938",
+    "producto": "BRISA LIMA LIMON 280ML PET(24)NVO",
+    "unidadesPorCaja": 24,
+    "existencias": 208
+  },
+  {
+    "codigo": "92899",
+    "codigoBarras": "7702004194206",
+    "producto": "REFAJO KOLA ROMAN 330M LAT(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "120023",
+    "codigoBarras": "",
+    "producto": "MONSTER ZERO 473ML LAT(24)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "120025",
+    "codigoBarras": "",
+    "producto": "ITEM HIELOCO X 12U 2025",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120109",
+    "codigoBarras": "",
+    "producto": "12PK + ITEM (4MG+3MR+2SP+2MP+1MF)188ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120116",
+    "codigoBarras": "",
+    "producto": "FRESH CITRUS 188ML TRP(24)NVO",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "120117",
+    "codigoBarras": "7702535022054",
+    "producto": "FRESH CITRUS 400ML PET (12)NVO",
+    "unidadesPorCaja": 12,
+    "existencias": 3758
+  },
+  {
+    "codigo": "120118",
+    "codigoBarras": "7702535022061",
+    "producto": "FRESH CITRUS 1.5LT PET(12)NVO",
+    "unidadesPorCaja": 12,
+    "existencias": 2424
+  },
+  {
+    "codigo": "120119",
+    "codigoBarras": "7702535022078",
+    "producto": "FRESH CITRUS 2.5LT PET(8)NVO",
+    "unidadesPorCaja": 8,
+    "existencias": 390
+  },
+  {
+    "codigo": "120120",
+    "codigoBarras": "7702535024577",
+    "producto": "2PK FRESH CITRUS 2.5L PET NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 18
+  },
+  {
+    "codigo": "120128",
+    "codigoBarras": "",
+    "producto": "FRUTAL MANGOFRS 500ML PET(6)NVO",
+    "unidadesPorCaja": 6,
+    "existencias": 30
+  },
+  {
+    "codigo": "120129",
+    "codigoBarras": "",
+    "producto": "FRUTAL MORA 500ML PET(6)NVO",
+    "unidadesPorCaja": 6,
+    "existencias": 6
+  },
+  {
+    "codigo": "120130",
+    "codigoBarras": "7702535030721",
+    "producto": "FRUTAL SALPICON 500ML PET(6)NVO",
+    "unidadesPorCaja": 6,
+    "existencias": -9
+  },
+  {
+    "codigo": "120131",
+    "codigoBarras": "7702535022511",
+    "producto": "FRUTAL MANGO 500ML PET(6)NVO",
+    "unidadesPorCaja": 6,
+    "existencias": 9
+  },
+  {
+    "codigo": "120133",
+    "codigoBarras": "",
+    "producto": "FRUTAL MANGOFRS 188ML TRP(24)NVO",
+    "unidadesPorCaja": 24,
+    "existencias": 12
+  },
+  {
+    "codigo": "120134",
+    "codigoBarras": "",
+    "producto": "FRUTAL MORA 188ML TRP(24)NVO",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "120135",
+    "codigoBarras": "",
+    "producto": "FRUTAL SALPICON 188ML TRP(24)NVO",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "120136",
+    "codigoBarras": "",
+    "producto": "FRUTAL MANGO 188ML TRP(24)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "120143",
+    "codigoBarras": "",
+    "producto": "12PK(3MR+3MG+2SP+2MP+2MF)500ML NVO CT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120145",
+    "codigoBarras": "",
+    "producto": "4PK JM(2MG+2MRA)188ML NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120147",
+    "codigoBarras": "",
+    "producto": "6PK(2MG+2MR+1MP+1MF)188ML NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120148",
+    "codigoBarras": "",
+    "producto": "12PK(4MG+5MR+2MP+1MF)188ML NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120156",
+    "codigoBarras": "070847004707",
+    "producto": "MONSTER GREEN 473ML LAT(12) MQ",
+    "unidadesPorCaja": 12,
+    "existencias": 581
+  },
+  {
+    "codigo": "120157",
+    "codigoBarras": "7702535030059",
+    "producto": "FRESH MANDARINA 188ML TRP(24)",
+    "unidadesPorCaja": 24,
+    "existencias": 12
+  },
+  {
+    "codigo": "120158",
+    "codigoBarras": "",
+    "producto": "FRESH MANDARINA 400ML(12)NVO",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "120159",
+    "codigoBarras": "",
+    "producto": "FRESH MANDARINA 1.5LT PET(12)NVO",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "120160",
+    "codigoBarras": "7702535015537",
+    "producto": "FRESH MANDARINA 2.5 LT PET (8)NVO",
+    "unidadesPorCaja": 8,
+    "existencias": 0
+  },
+  {
+    "codigo": "120161",
+    "codigoBarras": "",
+    "producto": "6PK (3CT+3MD) 188ML NVO TRP",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120175",
+    "codigoBarras": "070847897781",
+    "producto": "MONSTER PIPELINE 473ML LAT(24)",
+    "unidadesPorCaja": 24,
+    "existencias": 117
+  },
+  {
+    "codigo": "120180",
+    "codigoBarras": "070847036463",
+    "producto": "MONSTER VIOLET 473ML LAT(12) MQ",
+    "unidadesPorCaja": 12,
+    "existencias": -5
+  },
+  {
+    "codigo": "120181",
+    "codigoBarras": "070847038764",
+    "producto": "MONSTER MGLOCO 473ML LAT(12) MQ",
+    "unidadesPorCaja": 12,
+    "existencias": 48
+  },
+  {
+    "codigo": "120182",
+    "codigoBarras": "070847894933",
+    "producto": "MONSTER PARADISE 473ML LAT(12) MQ",
+    "unidadesPorCaja": 12,
+    "existencias": 18
+  },
+  {
+    "codigo": "120183",
+    "codigoBarras": "070847030805",
+    "producto": "MONSTER ULTRA 473ML LAT(12) MQ",
+    "unidadesPorCaja": 12,
+    "existencias": -9
+  },
+  {
+    "codigo": "120184",
+    "codigoBarras": "",
+    "producto": "FRESH PONCHE FRUTAS 400ML PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": -4
+  },
+  {
+    "codigo": "120185",
+    "codigoBarras": "7702535034460",
+    "producto": "FRESH PONCHE FRUTAS 1.5LT PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 65
+  },
+  {
+    "codigo": "120186",
+    "codigoBarras": "",
+    "producto": "FRESH PONCHE FRUTAS 188ML TRP(24)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120187",
+    "codigoBarras": "",
+    "producto": "FRESH CITRUS 250ML PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "120188",
+    "codigoBarras": "7702535034835",
+    "producto": "FRUTAL MANGO 1.2L PET (6)",
+    "unidadesPorCaja": 6,
+    "existencias": -4
+  },
+  {
+    "codigo": "120190",
+    "codigoBarras": "",
+    "producto": "FRUTAL MANGOFRS 1.2LT PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "120191",
+    "codigoBarras": "7702535034859",
+    "producto": "FRUTAL MORA 1.2LT PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 6
+  },
+  {
+    "codigo": "120193",
+    "codigoBarras": "7702535030219",
+    "producto": "12PK(4MG+3MR+3MF+2SP)188ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120194",
+    "codigoBarras": "7702535030257",
+    "producto": "6PK(2MG+2MR+1MF+1SP)188ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120196",
+    "codigoBarras": "7702535018767",
+    "producto": "3PK POWER SURT (2MB + 1FT) 500ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120202",
+    "codigoBarras": "",
+    "producto": "6PK (2CT+2MD+2PF) 188ML TRP",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "120205",
+    "codigoBarras": "7798422620342",
+    "producto": "MONSTER GREEN ZERO LAT 473ML(12)MQ",
+    "unidadesPorCaja": 12,
+    "existencias": 60
+  },
+  {
+    "codigo": "120208",
+    "codigoBarras": "",
+    "producto": "POWERADE CONTRATAQUE 500ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "120215",
+    "codigoBarras": "1220000063457",
+    "producto": "FURY LAT 473 ML (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 1198
+  },
+  {
+    "codigo": "135662",
+    "codigoBarras": "7702535024447",
+    "producto": "COCA COLA 3LT PET(6) Nvo",
+    "unidadesPorCaja": 6,
+    "existencias": 1673
+  },
+  {
+    "codigo": "135663",
+    "codigoBarras": "",
+    "producto": "COCA COLA 2.5LT PET(8) Nvo",
+    "unidadesPorCaja": 8,
+    "existencias": 882
+  },
+  {
+    "codigo": "135664",
+    "codigoBarras": "7702535024423",
+    "producto": "COCA COLA 1.5LT PET(12) Nvo",
+    "unidadesPorCaja": 12,
+    "existencias": 5020
+  },
+  {
+    "codigo": "135665",
+    "codigoBarras": "",
+    "producto": "COCA COLA 2LT RP(9) Nvo",
+    "unidadesPorCaja": 9,
+    "existencias": 0
+  },
+  {
+    "codigo": "135675",
+    "codigoBarras": "",
+    "producto": "COMBO AHORRO CCSO 3LT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "135676",
+    "codigoBarras": "",
+    "producto": "COMBO AHORRO CCSO 2.5LT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "135678",
+    "codigoBarras": "",
+    "producto": "2PK (CCSO3LT + SP3LT)Nvo",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "135685",
+    "codigoBarras": "",
+    "producto": "2PACK CCSO 1.5LT MED",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "135695",
+    "codigoBarras": "",
+    "producto": "COCA COLA SO 1.75LT PET(12) EINS",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "135718",
+    "codigoBarras": "77011527",
+    "producto": "COCA COLA SO 8OZ VIR (30)",
+    "unidadesPorCaja": 30,
+    "existencias": 1842
+  },
+  {
+    "codigo": "135746",
+    "codigoBarras": "",
+    "producto": "COCA COLA SO 1LT VIR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "135755",
+    "codigoBarras": "7702535007914",
+    "producto": "COCA COLA ZERO 2.5LT PET(8)KZ",
+    "unidadesPorCaja": 8,
+    "existencias": 288
+  },
+  {
+    "codigo": "135757",
+    "codigoBarras": "7702535011799",
+    "producto": "COCA COLA ZERO 1.5LT PET(12)KZ",
+    "unidadesPorCaja": 12,
+    "existencias": 600
+  },
+  {
+    "codigo": "135759",
+    "codigoBarras": "",
+    "producto": "COCA COLA ZERO 20Oz PET(15)KZ",
+    "unidadesPorCaja": 15,
+    "existencias": 0
+  },
+  {
+    "codigo": "135760",
+    "codigoBarras": "7702535011119",
+    "producto": "COCA COLA ZERO 400ML PET(12)KZ",
+    "unidadesPorCaja": 12,
+    "existencias": 4393
+  },
+  {
+    "codigo": "135761",
+    "codigoBarras": "77082381",
+    "producto": "COCA COLA ZERO 250ML PET(12)KZ",
+    "unidadesPorCaja": 12,
+    "existencias": 3369
+  },
+  {
+    "codigo": "135763",
+    "codigoBarras": "7702535006009",
+    "producto": "COCA COLA ZERO 350ML VR(30)KZ",
+    "unidadesPorCaja": 30,
+    "existencias": 2062
+  },
+  {
+    "codigo": "135766",
+    "codigoBarras": "",
+    "producto": "COCA COLA ZERO 10Oz VNR(12)KZ",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "135774",
+    "codigoBarras": "",
+    "producto": "6PK LAT CCZR KZ 235ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "135796",
+    "codigoBarras": "",
+    "producto": "3PK(2CCSO3L + 1CCSO1.5L) PET",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136020",
+    "codigoBarras": "7700618020430",
+    "producto": "BOCAD ATUN ACEI 140G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 151
+  },
+  {
+    "codigo": "136027",
+    "codigoBarras": "7700618020423",
+    "producto": "BOCAD ATUN AGUA 140GR KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 35
+  },
+  {
+    "codigo": "136113",
+    "codigoBarras": "",
+    "producto": "ESPEJO CCSO 1.5LT PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": -6
+  },
+  {
+    "codigo": "136133",
+    "codigoBarras": "7702535001783",
+    "producto": "COCA COLA 2.25L PET(8)EINSTEIN",
+    "unidadesPorCaja": 8,
+    "existencias": 0
+  },
+  {
+    "codigo": "136159",
+    "codigoBarras": "7702535001721",
+    "producto": "COCA COLA SO 1L PET (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 111
+  },
+  {
+    "codigo": "136204",
+    "codigoBarras": "",
+    "producto": "GAS CARBONICO 9KL",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136247",
+    "codigoBarras": "",
+    "producto": "2PK (1CCSO3LT + 1QTC 3LT)",
+    "unidadesPorCaja": 1,
+    "existencias": 31
+  },
+  {
+    "codigo": "136399",
+    "codigoBarras": "",
+    "producto": "COCA COLA ORIGINAL 269ML LAT(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136400",
+    "codigoBarras": "",
+    "producto": "COCA COLA ZERO 269ML LAT(12)KZ",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136401",
+    "codigoBarras": "7702535025260",
+    "producto": "CCZR CAFE 269ML LAT(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 72
+  },
+  {
+    "codigo": "136402",
+    "codigoBarras": "",
+    "producto": "6PK LAT CCSO 269ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136403",
+    "codigoBarras": "",
+    "producto": "6PK LAT CCZR KZ 269ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136405",
+    "codigoBarras": "",
+    "producto": "12PK LAT CCSO 269ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136406",
+    "codigoBarras": "",
+    "producto": "12PK CCSA 269ML LAT KZ",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136409",
+    "codigoBarras": "",
+    "producto": "24PK CCSO 269ML LAT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136410",
+    "codigoBarras": "",
+    "producto": "24PK CCZR 269ML LAT KZ",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136417",
+    "codigoBarras": "",
+    "producto": "COCA COLA 1.365LT PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136457",
+    "codigoBarras": "",
+    "producto": "ZUCARITAS DUALS 240G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136458",
+    "codigoBarras": "",
+    "producto": "CHOKRISPIS DUALS 240G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136459",
+    "codigoBarras": "",
+    "producto": "FROO LOOPS DUALS 200G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136461",
+    "codigoBarras": "7702103921833",
+    "producto": "ZUCARITAS MEGA 115G KIT54(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 3
+  },
+  {
+    "codigo": "136462",
+    "codigoBarras": "",
+    "producto": "CHOKRISPIS MEGA 115G KIT54(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136465",
+    "codigoBarras": "7702103833709",
+    "producto": "FROOT LOOPS MEGA 90GR KIT54(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 3
+  },
+  {
+    "codigo": "136466",
+    "codigoBarras": "7622201693213",
+    "producto": "OREO ROLLO 109GR KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 194
+  },
+  {
+    "codigo": "136467",
+    "codigoBarras": "7702133009013",
+    "producto": "OREO REGULAR COL324G KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 53
+  },
+  {
+    "codigo": "136468",
+    "codigoBarras": "7702133445118",
+    "producto": "HALL 100S STRNG 310G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 9
+  },
+  {
+    "codigo": "136469",
+    "codigoBarras": "",
+    "producto": "RITZ QUESO 180GR KIT20(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136470",
+    "codigoBarras": "",
+    "producto": "RITZ TACO EXP 52.5GR KIT64(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136471",
+    "codigoBarras": "",
+    "producto": "ATUN LOMO AHUMAD 140G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136472",
+    "codigoBarras": "",
+    "producto": "BOCADOS PICANTES 140G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136473",
+    "codigoBarras": "",
+    "producto": "BOCADOS LIMON 140G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136474",
+    "codigoBarras": "8410111009441",
+    "producto": "ATUN ISABEL ACEI 142G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 14
+  },
+  {
+    "codigo": "136475",
+    "codigoBarras": "7702993051375",
+    "producto": "BARRILETE 440GR PAIS KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136476",
+    "codigoBarras": "",
+    "producto": "BARRILETE 440GR KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136477",
+    "codigoBarras": "",
+    "producto": "CHAO PAST CEREZ 326G KIT12(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136478",
+    "codigoBarras": "7702993051016",
+    "producto": "CHAO MENTA 350GR KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 36
+  },
+  {
+    "codigo": "136479",
+    "codigoBarras": "7702993051030",
+    "producto": "CHAO FRESA 350GR KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 58
+  },
+  {
+    "codigo": "136484",
+    "codigoBarras": "",
+    "producto": "BIANCHI CHOCOBLA 460G KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136485",
+    "codigoBarras": "",
+    "producto": "BIANCHI CHOCOLA 460G KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136487",
+    "codigoBarras": "7702993030073",
+    "producto": "LOKINO CARAMEL 400GR KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 10
+  },
+  {
+    "codigo": "136498",
+    "codigoBarras": "",
+    "producto": "CASILLERO BLANCO 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136499",
+    "codigoBarras": "",
+    "producto": "CASILLER CABERN 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136500",
+    "codigoBarras": "",
+    "producto": "RESERVADO ROSE 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136501",
+    "codigoBarras": "",
+    "producto": "RESERV SAUVIGNON 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136502",
+    "codigoBarras": "",
+    "producto": "RESERV CABERNET 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136503",
+    "codigoBarras": "",
+    "producto": "RESERV CARMENERE 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136504",
+    "codigoBarras": "",
+    "producto": "FRONTE CABERNET 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136506",
+    "codigoBarras": "",
+    "producto": "FRONTER CABERNET 1.5L KIT6(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136507",
+    "codigoBarras": "",
+    "producto": "RESERVA MERLOT 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136515",
+    "codigoBarras": "",
+    "producto": "TEQ PATRON ANEJO 700M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136516",
+    "codigoBarras": "",
+    "producto": "TEQ PATRON SILV 700M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136520",
+    "codigoBarras": "",
+    "producto": "BACARDI MDARINA 750M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136521",
+    "codigoBarras": "",
+    "producto": "BACARDI LIMON 375M KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "136533",
+    "codigoBarras": "",
+    "producto": "TRULUL MAS VENDID 1.6G KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136536",
+    "codigoBarras": "",
+    "producto": "PB3 REGUL HALF 108G KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136538",
+    "codigoBarras": "",
+    "producto": "CEPILLO DELUXE 13GR KIT72(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136541",
+    "codigoBarras": "",
+    "producto": "ENSALADA NATURAL 160G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136559",
+    "codigoBarras": "",
+    "producto": "ZUCARITAS 288GR KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 25
+  },
+  {
+    "codigo": "136561",
+    "codigoBarras": "7702103131775",
+    "producto": "FROOT LOOPS 240GR KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 3
+  },
+  {
+    "codigo": "136614",
+    "codigoBarras": "",
+    "producto": "TOZINETAS MIEL 25G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136619",
+    "codigoBarras": "",
+    "producto": "GOLPE TODO BBQ 50G KIT48(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136622",
+    "codigoBarras": "",
+    "producto": "CHOCOLORES SURT 540G KIT12(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136623",
+    "codigoBarras": "",
+    "producto": "TRDNT EVUP MENTA31G KIT144(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136624",
+    "codigoBarras": "",
+    "producto": "TRDN EVUP SANDIA31G KIT144(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136627",
+    "codigoBarras": "",
+    "producto": "TRDENT 5SYERBA 153G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136628",
+    "codigoBarras": "",
+    "producto": "TRIDENT 5SMORA 153G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136630",
+    "codigoBarras": "",
+    "producto": "TRULULU MINIPACK 960G KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136631",
+    "codigoBarras": "",
+    "producto": "TRULULU MASMELOS 600G KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136632",
+    "codigoBarras": "",
+    "producto": "TRUL MAXIPACK 12U 1.2K KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136633",
+    "codigoBarras": "",
+    "producto": "3PK(2CCSO2.5LT + 1QTC1.5LT)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136642",
+    "codigoBarras": "",
+    "producto": "LA MUÑECA SPAG 250GR KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136643",
+    "codigoBarras": "",
+    "producto": "LA MUÑECA SPAG 500GR KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136644",
+    "codigoBarras": "",
+    "producto": "BROW MAMAIA AREQ 70GR KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136645",
+    "codigoBarras": "",
+    "producto": "AC RIQUISIMO 900ML KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136646",
+    "codigoBarras": "",
+    "producto": "AC RIQUISIMO 500ML KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "136647",
+    "codigoBarras": "",
+    "producto": "AC RIQUISIMO 250ML KIT48(1)",
+    "unidadesPorCaja": 48,
+    "existencias": 0
+  },
+  {
+    "codigo": "136648",
+    "codigoBarras": "",
+    "producto": "AC PREM GIRASOL 500ML KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "136656",
+    "codigoBarras": "",
+    "producto": "6PK (4CCSO + 2QT) 269ML LAT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136657",
+    "codigoBarras": "",
+    "producto": "BACARDI LIMON 700ML KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136658",
+    "codigoBarras": "",
+    "producto": "BACARDI SUPERIOR 700M KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136659",
+    "codigoBarras": "",
+    "producto": "BACARDI ANEJO 700ML KIT12(1)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "136660",
+    "codigoBarras": "",
+    "producto": "PTN Keratina SH 253G KIT25(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136661",
+    "codigoBarras": "",
+    "producto": "HS Anticomezon SH211G KIT25(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136665",
+    "codigoBarras": "",
+    "producto": "6PK CCSO 269ML LAT NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136669",
+    "codigoBarras": "",
+    "producto": "TRUL MAXIPK 12U 1.2K TOP KIT6(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136670",
+    "codigoBarras": "",
+    "producto": "TRUL MXPK 12U 1.3K TOPEX KIT6(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136671",
+    "codigoBarras": "",
+    "producto": "TRUL MAXI+VEND 12U 1.2K KIT6(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136673",
+    "codigoBarras": "",
+    "producto": "TRULULU MASMELOS 12U 600G KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136674",
+    "codigoBarras": "",
+    "producto": "TRUL CHOCOPOSTRE 12U 600G KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136675",
+    "codigoBarras": "",
+    "producto": "TRUL SABOR SURT 12U 360G KIT12(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136680",
+    "codigoBarras": "",
+    "producto": "INFALTABLE 14U YUPI 683G KIT6(1)",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136681",
+    "codigoBarras": "",
+    "producto": "MEGA SURT 19U YUPI 632G KIT6(1)",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136689",
+    "codigoBarras": "",
+    "producto": "2PK CCSO 2.5LT + VASO VIDRIO",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136691",
+    "codigoBarras": "87702993057946",
+    "producto": "EXH TRUL 72UX70G 6.7K KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 2
+  },
+  {
+    "codigo": "136692",
+    "codigoBarras": "",
+    "producto": "EXH TRUL 48UX70G 4.4K KIT1(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136693",
+    "codigoBarras": "",
+    "producto": "ESPEJO COCA COLA 2L RP (9)",
+    "unidadesPorCaja": 9,
+    "existencias": 0
+  },
+  {
+    "codigo": "136694",
+    "codigoBarras": "",
+    "producto": "LA MUÑECA SPAG 125GR KIT24(1)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "136695",
+    "codigoBarras": "",
+    "producto": "32PK CCSO 269ML LAT + 4 VASOS",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136696",
+    "codigoBarras": "",
+    "producto": "32PK CCZR 269ML LAT + 4 VASOS",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136697",
+    "codigoBarras": "",
+    "producto": "TOSTIEMPA LIMON 28G KIT72(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136700",
+    "codigoBarras": "7702993058862",
+    "producto": "BIANCHI CHOCOLA 600G KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 7
+  },
+  {
+    "codigo": "136701",
+    "codigoBarras": "",
+    "producto": "BIANCHI CHOCOBLA 600G KIT18(1)",
+    "unidadesPorCaja": 1,
+    "existencias": -3
+  },
+  {
+    "codigo": "136705",
+    "codigoBarras": "7622201776657",
+    "producto": "TRIDENT 5SX18U MENTA 153G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 128
+  },
+  {
+    "codigo": "136707",
+    "codigoBarras": "7622201765088",
+    "producto": "TRIDENT 1SX60U MENTA 90G KIT40(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 33
+  },
+  {
+    "codigo": "136708",
+    "codigoBarras": "",
+    "producto": "HALL 9SX12U MIELIMON 302G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136709",
+    "codigoBarras": "",
+    "producto": "HALL 9SX12U CEREZA 302G KIT30(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "136710",
+    "codigoBarras": "7622201717568",
+    "producto": "CLUB SOCIAL 9U ORIG 216G KIT24(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 8
+  },
+  {
+    "codigo": "136712",
+    "codigoBarras": "7702993058176",
+    "producto": "TRULU 70U MAS VENDID 1.6K KIT6(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 48
+  },
+  {
+    "codigo": "136715",
+    "codigoBarras": "",
+    "producto": "6PK LAT CCSO 269ML + ITEM",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136716",
+    "codigoBarras": "",
+    "producto": "6PK LAT CCZR KZ 269ML + ITEM",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136717",
+    "codigoBarras": "",
+    "producto": "6PK PET CCSO 250ML + ITEM",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136720",
+    "codigoBarras": "",
+    "producto": "TRUL MINIPACK 24U 840GR KIT12(1)",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136724",
+    "codigoBarras": "",
+    "producto": "ESPEJO COCA-COLA 350ML VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 0
+  },
+  {
+    "codigo": "136725",
+    "codigoBarras": "",
+    "producto": "2PK CCSO 2.5LT + GTS 1QT 1.5LT",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "136747",
+    "codigoBarras": "7702993052990",
+    "producto": "TUL CHOCOLORES SURT 360G KIT12(1)",
+    "unidadesPorCaja": 1,
+    "existencias": 1
+  },
+  {
+    "codigo": "136754",
+    "codigoBarras": "",
+    "producto": "2PK CCSO2.5L + GTS 1CCSA1.5L PET",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "160008",
+    "codigoBarras": "7702535013830",
+    "producto": "BRISA ECOFLEX 1 LITRO (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 441
+  },
+  {
+    "codigo": "160029",
+    "codigoBarras": "7702535005354",
+    "producto": "COCA-COLA 330ML LATA (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 72
+  },
+  {
+    "codigo": "160033",
+    "codigoBarras": "7702535006849",
+    "producto": "SCHWEPPES SODA 350 ML VIR (30)",
+    "unidadesPorCaja": 30,
+    "existencias": 2021
+  },
+  {
+    "codigo": "160040",
+    "codigoBarras": "",
+    "producto": "COCA-COLA 20 OZ PET(15)",
+    "unidadesPorCaja": 15,
+    "existencias": 0
+  },
+  {
+    "codigo": "160046",
+    "codigoBarras": "7702535010341",
+    "producto": "AGUA BRISA GAS PET 600ML (24)",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "160047",
+    "codigoBarras": "7702535010327",
+    "producto": "AGUA BRISA PET 600ML (24)",
+    "unidadesPorCaja": 24,
+    "existencias": 6336
+  },
+  {
+    "codigo": "160048",
+    "codigoBarras": "7702535009758",
+    "producto": "AGUA BRISA BOTELLON 5 GL TAPA VALVULA",
+    "unidadesPorCaja": 1,
+    "existencias": 288
+  },
+  {
+    "codigo": "160053",
+    "codigoBarras": "7702535001028",
+    "producto": "COCA-COLA 350ML VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 17505
+  },
+  {
+    "codigo": "160060",
+    "codigoBarras": "",
+    "producto": "MANANTIAL 1.5 PET(9)",
+    "unidadesPorCaja": 9,
+    "existencias": 0
+  },
+  {
+    "codigo": "160067",
+    "codigoBarras": "",
+    "producto": "KOLA ROMAN 350ML VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 0
+  },
+  {
+    "codigo": "160070",
+    "codigoBarras": "77012562",
+    "producto": "SPRITE LL 350ML VIR(30)",
+    "unidadesPorCaja": 30,
+    "existencias": 228
+  },
+  {
+    "codigo": "160081",
+    "codigoBarras": "",
+    "producto": "FUZE TEA TE NEGRO DURAZNO PET 1.2 (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "160099",
+    "codigoBarras": "7702609001886",
+    "producto": "KOLA ROMAN SO 1.5LT NR PET(12)",
+    "unidadesPorCaja": 12,
+    "existencias": 12
+  },
+  {
+    "codigo": "160100",
+    "codigoBarras": "",
+    "producto": "SCHWEPPES GINGER 1.5 LT NR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "160101",
+    "codigoBarras": "7702535011829",
+    "producto": "SCHWEPPES SODA 1.5 LT NR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 59
+  },
+  {
+    "codigo": "160102",
+    "codigoBarras": "7702535011713",
+    "producto": "SPRITE 1.5L PET (12)",
+    "unidadesPorCaja": 12,
+    "existencias": -33
+  },
+  {
+    "codigo": "160121",
+    "codigoBarras": "7702535009987",
+    "producto": "POWERADE ION4 FT 500ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 226
+  },
+  {
+    "codigo": "160122",
+    "codigoBarras": "7702535009994",
+    "producto": "POWERADE ION4 MB 500ML PET(6)",
+    "unidadesPorCaja": 6,
+    "existencias": 16
+  },
+  {
+    "codigo": "160124",
+    "codigoBarras": "7702535005910",
+    "producto": "SPRITE 3 LTS PET (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 81
+  },
+  {
+    "codigo": "160151",
+    "codigoBarras": "7702535002650",
+    "producto": "AGUA BRISA BIDON 6 LT (2)",
+    "unidadesPorCaja": 1,
+    "existencias": 15
+  },
+  {
+    "codigo": "160168",
+    "codigoBarras": "77098320",
+    "producto": "BRISA PLAIN 280ML PET (24)",
+    "unidadesPorCaja": 24,
+    "existencias": 1848
+  },
+  {
+    "codigo": "160186",
+    "codigoBarras": "7702535014233",
+    "producto": "FUZE NEGRO DURAZNO PET 400 (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 48
+  },
+  {
+    "codigo": "160187",
+    "codigoBarras": "7702535014240",
+    "producto": "FUZE NEGRO LIMON PET 400 (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 174
+  },
+  {
+    "codigo": "160188",
+    "codigoBarras": "",
+    "producto": "FUZE MANZANA L 400ML PET (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 0
+  },
+  {
+    "codigo": "160192",
+    "codigoBarras": "77013378",
+    "producto": "COCA COLA 10 OZ VNR (12) SPMKS TEMPORAL",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "160200",
+    "codigoBarras": "77035684",
+    "producto": "COCA COLA 250 ml (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 20479
+  },
+  {
+    "codigo": "160201",
+    "codigoBarras": "",
+    "producto": "6PACK Mini Pet CCR 250 ml",
+    "unidadesPorCaja": 1,
+    "existencias": 50
+  },
+  {
+    "codigo": "160223",
+    "codigoBarras": "",
+    "producto": "FUZE MANGO M 400ML PET (6)",
+    "unidadesPorCaja": 6,
+    "existencias": 36
+  },
+  {
+    "codigo": "160240",
+    "codigoBarras": "7702609005488",
+    "producto": "MANANTIAL GAS 600 ML (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 42
+  },
+  {
+    "codigo": "160241",
+    "codigoBarras": "7702609005372",
+    "producto": "MANANTIAL 600 ML (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 0
+  },
+  {
+    "codigo": "160243",
+    "codigoBarras": "",
+    "producto": "6 PACK MANANTIAL 600 ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "160247",
+    "codigoBarras": "7702535014448",
+    "producto": "3 PACK FUZE 400 DUR MANZ LIM",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "160254",
+    "codigoBarras": "",
+    "producto": "AGUA BRISA BOLSA 6L (4)",
+    "unidadesPorCaja": 4,
+    "existencias": 0
+  },
+  {
+    "codigo": "160255",
+    "codigoBarras": "",
+    "producto": "AGUA BRISA BOLSA 6L(4)  SPMKS",
+    "unidadesPorCaja": 4,
+    "existencias": 0
+  },
+  {
+    "codigo": "160297",
+    "codigoBarras": "7702535012086",
+    "producto": "SPRITE 400 ML NR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 133
+  },
+  {
+    "codigo": "160318",
+    "codigoBarras": "7702535011089",
+    "producto": "COCA-COLA 400ML PET  (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 25012
+  },
+  {
+    "codigo": "160378",
+    "codigoBarras": "",
+    "producto": "MONSTER ULTRA LATA 473ML (24) 107200",
+    "unidadesPorCaja": 24,
+    "existencias": 0
+  },
+  {
+    "codigo": "160479",
+    "codigoBarras": "7702609006508",
+    "producto": "KOLA ROMAN 400 ML NR (12)",
+    "unidadesPorCaja": 12,
+    "existencias": 144
+  },
+  {
+    "codigo": "160880",
+    "codigoBarras": "",
+    "producto": "6PK LAT CCSO 235ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "183131",
+    "codigoBarras": "",
+    "producto": "BOTELLA DEL VALLE 350 ML RGB",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "183303",
+    "codigoBarras": "",
+    "producto": "BOT COCA-COLA 8 OZ",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "183307",
+    "codigoBarras": "",
+    "producto": "BOT SABORES 8 OZ",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "183391",
+    "codigoBarras": "",
+    "producto": "BOT MULTIPRODUCTO 1 L",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "183401",
+    "codigoBarras": "",
+    "producto": "BOT MULTIPRODUCTO 2L RP",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "183411",
+    "codigoBarras": "",
+    "producto": "BOT COCA-COLA 8 OZ ETIQUETA",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "183501",
+    "codigoBarras": "",
+    "producto": "CANASTA GRIS VTM",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "183502",
+    "codigoBarras": "",
+    "producto": "CANASTA ROJA VTM",
+    "unidadesPorCaja": 1,
+    "existencias": 7
+  },
+  {
+    "codigo": "183511",
+    "codigoBarras": "",
+    "producto": "ESTIBA MADERA ISO GEOLOGISTICA NVA",
+    "unidadesPorCaja": 1,
+    "existencias": 3
+  },
+  {
+    "codigo": "183661",
+    "codigoBarras": "",
+    "producto": "CILINDRO 20KL Vacío",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184000",
+    "codigoBarras": "",
+    "producto": "BOT KOLA ROMAN 1.25 RGB",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184002",
+    "codigoBarras": "",
+    "producto": "BOTELLON BRISA 5 GLS",
+    "unidadesPorCaja": 1,
+    "existencias": 821
+  },
+  {
+    "codigo": "184003",
+    "codigoBarras": "",
+    "producto": "CANASTA PLASTICA BRISA KOF",
+    "unidadesPorCaja": 1,
+    "existencias": 11
+  },
+  {
+    "codigo": "184006",
+    "codigoBarras": "",
+    "producto": "BOTELLA CC 500ML VR",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184008",
+    "codigoBarras": "",
+    "producto": "CANASTA PLASTICA 30UN",
+    "unidadesPorCaja": 1,
+    "existencias": 2423.0333333333338
+  },
+  {
+    "codigo": "184009",
+    "codigoBarras": "",
+    "producto": "CANASTA PLASTICA 12UN",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184010",
+    "codigoBarras": "",
+    "producto": "CANASTA PLASTICA 9UN",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184011",
+    "codigoBarras": "",
+    "producto": "CANASTA PLASTICA VERDE",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184013",
+    "codigoBarras": "",
+    "producto": "CILINDRO 20KL",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184016",
+    "codigoBarras": "",
+    "producto": "BOT COCA-COLA 6.5OZ",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "184017",
+    "codigoBarras": "",
+    "producto": "BOT COCA-COLA 350ML",
+    "unidadesPorCaja": 30,
+    "existencias": 58485
+  },
+  {
+    "codigo": "184018",
+    "codigoBarras": "",
+    "producto": "BOT COCA-COLA 2LT",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184019",
+    "codigoBarras": "",
+    "producto": "BOT QUATRO 350ML",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184020",
+    "codigoBarras": "",
+    "producto": "BOT SPRITE 350ML",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184021",
+    "codigoBarras": "",
+    "producto": "BOT FANTA 350ML",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184022",
+    "codigoBarras": "",
+    "producto": "BOT PREMIO 350ML",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "184023",
+    "codigoBarras": "",
+    "producto": "BOT ROMAN KOLA 350ML",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184024",
+    "codigoBarras": "",
+    "producto": "BOT PREMIO 6 OZ",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184025",
+    "codigoBarras": "",
+    "producto": "BOT QUATRO 6.5 OZ",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "184026",
+    "codigoBarras": "",
+    "producto": "BOT SPRITE 6.5OZ",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184027",
+    "codigoBarras": "",
+    "producto": "ENVASE KOLA ROMAN 178ml 30un",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184029",
+    "codigoBarras": "",
+    "producto": "BOT QUATRO 1.25LT",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184030",
+    "codigoBarras": "",
+    "producto": "BOT COCA-COLA 1.25LT",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "184031",
+    "codigoBarras": "",
+    "producto": "ENVASE CRUSH 350ml 30un",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184032",
+    "codigoBarras": "",
+    "producto": "BOTELLA PREMIO ROJA 1.25 ML VIR",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184033",
+    "codigoBarras": "",
+    "producto": "BOTELLA PREMIO ROJA 250 ML VIR",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184035",
+    "codigoBarras": "",
+    "producto": "BOTELLA SCHWEPPES 350 ML VIR",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "184036",
+    "codigoBarras": "",
+    "producto": "BOT KOLA ROMAN 250 ml VIR",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184037",
+    "codigoBarras": "",
+    "producto": "BOT SPRITE 1.25 ML VIR",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184038",
+    "codigoBarras": "",
+    "producto": "BOTELLA COCA COLA ZERO 350 ML VIR",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "184040",
+    "codigoBarras": "",
+    "producto": "BOT FANTA 250 ML RGB",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184041",
+    "codigoBarras": "",
+    "producto": "BOT PREMIO 250ML RGB",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "184042",
+    "codigoBarras": "",
+    "producto": "BOT KOLA ROMAN 250ML RGB",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "197792",
+    "codigoBarras": "",
+    "producto": "RACK CILINDROS DE CO2 x 4 NVO",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "197794",
+    "codigoBarras": "",
+    "producto": "RACK BOTELLON 16",
+    "unidadesPorCaja": 1,
+    "existencias": 55
+  },
+  {
+    "codigo": "197798",
+    "codigoBarras": "",
+    "producto": "TARIMA PLASTICA AZUCAR 1.20cmx1.2 cm NVO",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "197801",
+    "codigoBarras": "",
+    "producto": "RACK BRISA NVO",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "197812",
+    "codigoBarras": "",
+    "producto": "ESTIBA MADERA ISO ASIGNACION FLETE) NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 10
+  },
+  {
+    "codigo": "197815",
+    "codigoBarras": "",
+    "producto": "TARIMA PLASTICA ISO OW 1.0 cm X 1.2 NVO",
+    "unidadesPorCaja": 1,
+    "existencias": 239
+  },
+  {
+    "codigo": "197817",
+    "codigoBarras": "",
+    "producto": "TARIMA PLASTICA AZUCAR 1.52 MT X 1.2 MT",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  },
+  {
+    "codigo": "197823",
+    "codigoBarras": "",
+    "producto": "ESTIBA MADERA VERDE (ASIGNACION FLETE) N",
+    "unidadesPorCaja": 1,
+    "existencias": 0
+  },
+  {
+    "codigo": "197826",
+    "codigoBarras": "",
+    "producto": "ESTIBA MADERA OPERACIONAL RETORNABL",
+    "unidadesPorCaja": 1,
+    "existencias": 48
+  },
+  {
+    "codigo": "601961",
+    "codigoBarras": "",
+    "producto": "GAS CARBONICO 9 KLS",
+    "unidadesPorCaja": 0,
+    "existencias": 0
+  }
+]
