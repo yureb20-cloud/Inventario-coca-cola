@@ -1802,7 +1802,28 @@ window.addEventListener('pagehide',hideIntegratedPads);
     if(typeof id!=='string'||!id||id.includes('/'))throw Error('Vinculación inválida.');
     const company=await readCompanyDoc(doc(db,'judabinvCompanies',id));
     if(!company.exists()||company.data().status!=='approved')throw Error('La cuenta no tiene una empresa aprobada.');
-    const [catalog,profiles,records,stockRecords,barcodeRecords]=await Promise.all(['products','profiles','counts','stocks','barcodes'].map(name=>(offline?getDocsFromCache:getDocsFromServer)(collection(db,'judabinvCompanies',id,name))));
+    const baseCacheKey='judabinv_base_fresh:'+JSON.stringify([user.uid,id]);
+    const baseCollections=['products','stocks','barcodes'];
+    const readCollections=(names,read)=>Promise.all(names.map(name=>read(collection(db,'judabinvCompanies',id,name))));
+    async function readBase(){
+     if(offline)return readCollections(baseCollections,getDocsFromCache);
+     let freshAt=0;
+     try{freshAt=Number(localStorage.getItem(baseCacheKey))}catch{}
+     const age=Date.now()-freshAt;
+     if(age>=0&&age<15*60*1000){
+      try{
+       const cached=await readCollections(baseCollections,getDocsFromCache);
+       if(!cached[0].empty)return cached;
+      }catch{}
+     }
+     const fresh=await readCollections(baseCollections,getDocsFromServer);
+     try{localStorage.setItem(baseCacheKey,String(Date.now()))}catch{}
+     return fresh;
+    }
+    const [[catalog,stockRecords,barcodeRecords],[profiles,records]]=await Promise.all([
+     readBase(),
+     readCollections(['profiles','counts'],offline?getDocsFromCache:getDocsFromServer)
+    ]);
     cloudState(navigator.onLine);
     const barcodes=new Map(barcodeRecords.docs.map(item=>[item.id,item.data().barcode]));
     products=catalog.docs.map(entry=>({ ...entry.data(),cloudId:entry.id,barcode:barcodes.get(entry.id),unitsPerBox:entry.data().pack }));
@@ -1839,6 +1860,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     const countsRef=collection(db,'judabinvCompanies',id,'counts');
     const stocksRef=collection(db,'judabinvCompanies',id,'stocks');
     if(type==='admin')importCloudBase=async rows=>{
+     try{localStorage.removeItem(baseCacheKey)}catch{}
      const [currentProducts,currentStocks]=await Promise.all([getDocsFromServer(productsRef),getDocsFromServer(stocksRef)]);
      const existing=new Map(currentProducts.docs.map(item=>[item.data().code,item]));
      const stockDocs=new Map(currentStocks.docs.map(item=>[item.data().code,item]));
