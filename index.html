@@ -751,7 +751,7 @@ function renderCompare(){
   const diff=r.diff===null?'—':(r.diff>0?'+':'')+r.diff;
   const klass=r.diff===null?'':r.diff<0?'v16DiffMinus':r.diff>0?'v16DiffPlus':'';
   const detail=r.detail.filter(w=>Number(w.boxes)>0||Number(w.units)>0).map(w=>`<div class="v16Person"><div><strong>${safeText(w.person)}</strong><small>${fmt(w.boxes,w.units,r.pack)} (cajas / unidades) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'}</small></div>${mergedIds.includes(w.id)?'':`<button type="button" class="v18Pencil" data-edit-worker="${safeText(w.id)}" aria-label="Editar conteo">✎</button><button type="button" class="v50Delete" data-delete-worker="${safeText(w.id)}" aria-label="Eliminar conteo del colaborador">🗑</button>`}</div>`).join('');
-  const principal=(r.pb||r.pu)?`<div class="v16Person"><div><strong>Conteo principal</strong><small>${fmt(r.pb,r.pu,r.pack)} (cajas / unidades)</small></div><button type="button" class="v18Pencil" data-edit-principal="${safeText(r.code)}" aria-label="Editar conteo principal">✎</button><button type="button" class="v50Delete" data-delete-principal="${safeText(r.code)}" aria-label="Eliminar conteo principal">🗑</button></div>`:'';
+  const principal=principalCounts.filter(row=>String(row.code)===String(r.code)&&(row.boxes||row.units)).map(row=>`<div class="v16Person"><div><strong>Conteo principal</strong><small>${fmt(row.boxes,row.units,row.pack??r.pack)} (cajas / unidades)</small></div>${canEditDemoRow(row)?`<button type="button" class="v18Pencil" data-edit-worker="${safeText(row.id)}">✎</button>`:""}</div>`).join("");
   const count=fmt(r.pb+r.wb,r.pu+r.wu,r.pack);
   const secondary=r.stock===null?'—':r.stock;
   const warn='';
@@ -767,11 +767,11 @@ function renderCompare(){
 }
 let editTarget=null;
 function openEdit(kind,id){
- if(kind!=='worker'||!canEditDemoRow([...workerRows,...principalCounts].find(row=>row.id===id)))return;
+
  let row=kind==='worker'?[...workerRows,...principalCounts].find(x=>x.id===id):principalCounts.find(x=>String(x.code)===String(id));
- if(!row)return alert('No hay registro editable para este producto.');
+ if(!canEditDemoRow(row))return alert('No hay registro editable para este producto.');
  if(kind==='worker'&&mergedIds.includes(id))return alert('Registro histórico incorporado al principal. Edita el principal para evitar inconsistencias.');
- editTarget={kind,id};
+ editTarget={kind:'worker',id:row.id};
  $('v18EditWho').textContent=kind==='worker'?row.person:kind==='active'?v36ActiveName():'Conteo principal';
  $('v18EditProduct').textContent=row.name||row.code;
  $('v18EditBoxes').value=Number(row.boxes)||0;
@@ -818,13 +818,14 @@ $('v18Save').onclick=async()=>{
  if(button.disabled||!canEditDemoRow(row))return;
  const b=unitsOnly?0:Number($('v18EditBoxes').value), u=Number($('v18EditUnits').value);
  if(![b,u].every(n=>Number.isSafeInteger(n)&&n>=0))return alert('Ingresa cantidades enteras no negativas.');
- const {boxes,units}=normalizedQty(b,u,packFor(row));
+ const editPack=row.pack??packFor(row);
+ const {boxes,units}=normalizedQty(b,u,editPack);
  button.disabled=true;
  try {
   cloudState(false);
  await updateCloudCount(row,boxes,units);
  cloudState(navigator.onLine);
-  Object.assign(row,{boxes,units,version:row.version+1,total:boxes*packFor(row)+units});
+  Object.assign(row,{boxes,units,version:row.version+1,total:boxes*editPack+units});
   counts=consolidateCounts(v36ActiveRows());
   $('v18Cancel').click();
   render();
@@ -1455,7 +1456,7 @@ $('baseFile').onchange=async e=>{
   updateSelects();
   render();
   $('demoStatus').textContent='Carga base guardada en Firestore: '+result.length+' productos.';
-  alert($('demoStatus').textContent+(packConflicts.length?' Empaque anterior conservado en: '+packConflicts.join(', ')+'.':''));
+  alert($('demoStatus').textContent+(packConflicts.length?' Unidades por caja actualizadas en: '+packConflicts.join(', ')+'.':''));
  }catch(err){alert('No se pudo importar: '+err.message+'\n\nAdmite Excel XLSX/XLS o CSV con Código, Código de barras, Producto, Unidades por caja y Existencias.');} finally {importingBase=false;}
 };
 $('exportBase').onclick=()=>{csv([['Código','Código de barras','Producto',...(unitsOnly?[]:['Unidades por caja']),'Existencias'],...products.map(p=>[p.code,p.barcode??'',p.name,...(unitsOnly?[]:[packFor(p)??'']),stockFor(p)])],'JUDABINV_Carga_Base.csv');$('menu').classList.remove('open')};
@@ -1897,7 +1898,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
       const stockRef=units===undefined?null:stockDocs.get(code)?.ref??doc(stocksRef,'base-'+encodeURIComponent(code));
       const barcode=row.barcode||barcodes.get(ref.id);
       if(barcode?.length>128)throw Error("Código de barras demasiado largo: "+code);
-      changes.push({code,name:prior?.data().name??name,barcode,pack:prior?.data().pack??pack,unitsPerBox:prior?.data().pack??pack,cloudId:ref.id,units,ref,stockRef,isNew:!prior});
+      changes.push({code,name:prior?.data().name??name,barcode,pack,unitsPerBox:pack,cloudId:ref.id,units,ref,stockRef,isNew:!prior});
      }
      let confirmed=0;
      for(let offset=0;offset<changes.length;offset+=50){
@@ -1905,6 +1906,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
       const batch=writeBatch(db);
       for(const {code,name,barcode,pack,units,ref,stockRef,isNew} of group){
        if(isNew)batch.set(ref,{code,name,pack,createdAt:serverTimestamp()});
+       else if(existing.get(code).data().pack!==pack)batch.update(ref,{pack});
        if(barcode)batch.set(doc(db,"judabinvCompanies",id,"barcodes",ref.id),{barcode});
        if(stockRef)batch.set(stockRef,{code,units,updatedAt:serverTimestamp()});
       }
