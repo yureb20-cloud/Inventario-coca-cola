@@ -829,7 +829,7 @@ function openEdit(kind,id){
 }
 // V29: teclado propio en edición de principal y colaboradores.
 let v29ActiveEdit='v18EditBoxes';
-const v29EditKeys=['7','8','9','÷','4','5','6','×','1','2','3','−','C','0','⌫','+','=','Enter'];
+const v29EditKeys=['1','2','3','÷','4','5','6','×','7','8','9','−','C','0','⌫','+','=','Enter'];
 $('v29EditPadKeys').innerHTML=v29EditKeys.map(k=>'<button type="button" data-edit-pad="'+k+'">'+k+'</button>').join('');
 function v29SelectEditField(id){
  v29ActiveEdit=id;
@@ -990,7 +990,7 @@ $('search').addEventListener('click',()=>{
 });
 $('search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();let p=product()||products.find(p=>(p.code+' '+p.name).toLowerCase().includes($('search').value.trim().toLowerCase()));if(p)selectProduct(p)}});function evalMath(value){if(String(value).trim()==='')return 0;let expr=String(value).trim().replaceAll('×','*').replaceAll('÷','/').replaceAll('−','-');if(!/^[0-9+*/().\\s-]+$/.test(expr)||!expr||expr.length>90)return NaN;try{let v=Function('"use strict";return ('+expr+')')();return Number.isSafeInteger(v)&&v>=0?v:NaN}catch{return NaN}}
 function commit(id){let v=evalMath($(id).value);if(!Number.isFinite(v)){alert('Operación inválida. Usa resultados enteros no negativos.');return false}$(id).value=String(v);return true}
-const pad=['7','8','9','÷','4','5','6','×','1','2','3','−','C','0','⌫','+','=','Enter'];
+const pad=['1','2','3','÷','4','5','6','×','7','8','9','−','C','0','⌫','+','=','Enter'];
 $('padKeys').innerHTML=pad.map(k=>'<button type="button" data-pad="'+k+'">'+k+'</button>').join('');
 
 // V24: buscador compacto para elegir producto sin abrir el selector gigante de Android.
@@ -1050,7 +1050,7 @@ try {
  button.disabled = false;
 }
 };
-$('calcToggle').onclick=()=>$('calculator').classList.toggle('hidden');$('calcKeys').innerHTML=['7','8','9','÷','4','5','6','×','1','2','3','−','0','C','=','+'].map(k=>`<button data-key="${k}">${k}</button>`).join('');
+$('calcToggle').onclick=()=>$('calculator').classList.toggle('hidden');$('calcKeys').innerHTML=['1','2','3','÷','4','5','6','×','7','8','9','−','0','C','=','+'].map(k=>`<button data-key="${k}">${k}</button>`).join('');
 $('calcKeys').onclick=e=>{let k=e.target.dataset.key;if(!k)return;let x=$('expr');if(k==='C')return x.value='';if(k==='='){let v=x.value.replaceAll('×','*').replaceAll('÷','/').replaceAll('−','-');if(!/^[0-9+\-*/ ()]+$/.test(v))return alert('Operación no válida');try{let z=Function('"use strict";return ('+v+')')();if(!Number.isInteger(z)||z<0)throw Error();x.value=z;$(last).value=z}catch{alert('El resultado debe ser entero y no negativo')}return}x.value+=k};
 $('clear').onclick=async()=>{
  const rows=v36ActiveRows().filter(row=>canEditDemoRow(row)&&(row.boxes||row.units));
