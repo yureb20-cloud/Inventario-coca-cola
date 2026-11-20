@@ -816,7 +816,7 @@ $('v18Save').onclick=async()=>{
  const button=$('v18Save');
  const row=[...workerRows,...principalCounts].find(item=>item.id===editTarget?.id);
  if(button.disabled||!canEditDemoRow(row))return;
- const b=unitsOnly?0:Number($('v18EditBoxes').value), u=Number($('v18EditUnits').value);
+ const b=unitsOnly?0:evalMath($('v18EditBoxes').value), u=evalMath($('v18EditUnits').value);
  if(![b,u].every(n=>Number.isSafeInteger(n)&&n>=0))return alert('Ingresa cantidades enteras no negativas.');
  const editPack=row.pack??packFor(row);
  const {boxes,units}=normalizedQty(b,u,editPack);
@@ -1050,11 +1050,11 @@ $('scan').onclick=async()=>{
  try{
 
   if(closed)return;
-  stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1920},height:{ideal:1080}},audio:false});
+  stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}},audio:false});
   if(closed){stream.getTracks().forEach(track=>track.stop());return}
   const track=stream.getVideoTracks()[0];
   const capabilities=track?.getCapabilities?.()??{};
-  const focusModes=capabilities.focusMode;
+
   if(capabilities.torch){
    const lamp=document.createElement('button');
    lamp.type='button';
@@ -1071,9 +1071,7 @@ $('scan').onclick=async()=>{
    };
    dialog.append(lamp);
   }
-  if(focusModes?.includes('continuous')){
-   await track.applyConstraints({advanced:[{focusMode:'continuous'}]}).catch(()=>{});
-  }
+
   if(closed)return;
   video.srcObject=stream;
   await video.play();
@@ -1142,11 +1140,11 @@ $('scan').onclick=async()=>{
   }
   scanFrame();
   }
-  const formats=['ean_13','ean_8','upc_a','upc_e','code_128','code_39','code_93','itf','codabar','qr_code'];
+  const formats=['ean_13','ean_8','upc_a','upc_e','code_128','code_39','code_93','itf','codabar','qr_code','data_matrix'];
   let detector;
   try{
    if(window.BarcodeDetector){
-    const supported=await window.BarcodeDetector.getSupportedFormats();
+    const supported=window.BarcodeDetector.getSupportedFormats?await window.BarcodeDetector.getSupportedFormats():formats;
     const available=formats.filter(format=>supported.includes(format));
     if(available.length)detector=new window.BarcodeDetector({formats:available});
    }
@@ -1157,15 +1155,15 @@ $('scan').onclick=async()=>{
   const fallback=()=>startFallback().catch(()=>{
    if(!closed)status.textContent='No se pudo cargar el lector de respaldo.';
   });
-  let started=performance.now();
+
   async function scanNative(){
    if(closed)return;
    try{
     const results=await detector.detect(video);
     if(closed||results.some(result=>acceptCode(result.rawValue)))return;
    }catch{void fallback();return}
-   if(performance.now()-started>2500){void fallback();return}
-   timer=setTimeout(scanNative,65);
+
+   timer=setTimeout(scanNative,180);
   }
   void scanNative();
  }catch(error){
