@@ -1,8 +1,8 @@
 const prefix = 'judabinv-shell:' + self.registration.scope + ':';
 // Incrementa esta versión al publicar cambios en el HTML o sus archivos de instalación.
-const cacheName = prefix + '12';
+const cacheName = prefix + '13';
 const shell = new URL('./index.html', self.registration.scope).href;
-const assets = [shell, './manifest.webmanifest', './judabinv-192.png', './judabinv-512.png'];
+const assets = [shell, './manifest.webmanifest', './judabinv-192.png?v=jdb1', './judabinv-512.png?v=jdb1'];
 
 const sdk = 'https://www.gstatic.com/firebasejs/13.2.0/';
 const modules = ['firebase-app.js', 'firebase-auth.js', 'firebase-firestore.js'].map(name => sdk + name);
