@@ -499,7 +499,7 @@ body.v60Worker #menu .baseMenuButtons{grid-template-columns:repeat(2,minmax(0,1f
 <div id="baseManager" class="hidden"><div class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 style="margin:3px 0">Carga base</h2><button id="closeBase" type="button">✕ Cerrar</button></div><p class="note" id="baseInfo"></p><div class="baseForm"><div><label>CÓDIGO<input id="baseCode" autocomplete="off" placeholder="Código"></label></div><div><label>CÓDIGO DE BARRAS<input id="baseBarcode" autocomplete="off" placeholder="Código de barras"></label></div><div class="wide"><label>NOMBRE DEL PRODUCTO<input id="baseName" autocomplete="off" placeholder="Nombre del producto"></label></div><div><label>UNIDADES POR CAJA<input id="basePack" type="number" inputmode="numeric" min="1" placeholder="Ej. 30"></label></div><div><label>EXISTENCIAS (UNIDADES)<input id="baseStock" type="number" placeholder="0"></label></div></div><div class="baseFormActions"><button id="baseSave" type="button">💾 Guardar producto</button><button id="baseReset" type="button">Limpiar campos</button></div></div><div class="panel"><div class="label">Buscar en la base de productos</div><input id="baseSearch" class="baseSearchField" placeholder="Código, barras o nombre..."><p class="note">Desliza la tabla horizontalmente ↔ para consultar todas las columnas.</p><div class="tablewrap baseTableScroll" style="margin:0"><table><thead><tr><th>Código</th><th>Código de barras</th><th>Producto</th><th>Und./caja</th><th>Existencias (UND)</th><th>Acciones</th></tr></thead><tbody id="baseRows"></tbody></table></div></div></div><div id="conteo"><div class="panel"><div class="label">Código / Nombre</div><div class="searchrow"><input id="search" autocomplete="off" placeholder="▥  Escanear o buscar producto..."><button class="camera" id="scan">📷</button></div><div id="suggestions" class="suggestions hidden" role="listbox" aria-label="Productos encontrados"></div><p id="found" class="note"></p><div class="quant"><div><label>Cajas</label><input id="boxes" class="num mathfield" type="text" inputmode="none" autocomplete="off" value=""></div><div><label>Unidades</label><input id="units" class="num mathfield" type="text" inputmode="none" autocomplete="off" value=""></div><button class="calcbutton" id="calcToggle" aria-label="Calculadora">▦</button><button id="add" class="primary addSquare" aria-label="Agregar al conteo">+</button></div><div id="numberPad" class="numberPad hidden"><div class="padTitle">Teclado numérico · <span id="padTarget">Cajas</span></div><div class="padGrid" id="padKeys"></div></div></div>
 <div class="panel hidden" id="calculator"><div class="label">Calculadora</div><input id="expr" class="num" placeholder="0"><div class="calcgrid" id="calcKeys"></div><p class="note">El resultado se coloca en el último campo seleccionado.</p></div>
 <div class="sectionhead"><span id="recentCountTotals" class="recentCountTotals"></span></div><div class="countTools" data-count-tools="recent"><input type="search" aria-label="Buscar producto contado" placeholder="Buscar…"><div class="countFilters"><button type="button" data-count-filter="todos" aria-pressed="true">Todos</button><button type="button" data-count-filter="sobrantes" aria-pressed="false">Sobrantes</button><button type="button" data-count-filter="faltantes" aria-pressed="false">Faltantes</button><button type="button" data-count-filter="iguales" aria-pressed="false">Iguales</button></div><button id="viewAll" type="button" aria-label="Ver todos los conteos" title="Ver todos los conteos">↗</button></div><div class="tablewrap countTable"><table><thead><tr><th>Código</th><th>Producto</th><th>CJ / UND</th><th id="countBase">Base</th><th id="countDifference">Dif.</th></tr></thead><tbody id="countRows"></tbody></table></div>
-<div class="actions fixedActions"><button id="sync" class="blue"><span>☁⇧</span>Sincronizar<br>en la nube</button><button id="export" class="green"><span>📗</span>Exportar<br>CSV de prueba</button><button id="clear"><span>🗑</span>Limpiar<br>conteo</button><button id="finishCurrentCount" type="button"><span>✓</span>Finalizar<br>conteo</button></div></div>
+<div class="actions fixedActions"><button id="sync" class="blue"><span>☁⇧</span>Sincronizar<br>en la nube</button><button id="export" class="green"><span>📗</span>Exportar<br>Excel</button><button id="clear"><span>🗑</span>Limpiar<br>conteo</button><button id="finishCurrentCount" type="button"><span>✓</span>Finalizar<br>conteo</button></div></div>
 <div id="consolidado" class="hidden">
 <div class="panel v46Header"><h2>Consolidado</h2><div class="compareTabs v46Tabs"><button id="tabWorkers" class="chosen" type="button">Conteos</button><button id="tabStock" type="button">General</button><button type="button" id="toggleWorker" aria-expanded="false" aria-controls="workerEntry">＋ Agregar conteo ▾</button></div></div>
 <div class="panel compactEntry" id="workerEntry" hidden><div class="label">Agregar conteo de colaborador</div><div class="entry"><select id="workerName" aria-label="Seleccionar colaborador"><option value="">Sin colaboradores creados</option></select><div class="workerPicker"><input id="workerProductSearch" type="text" autocomplete="off" placeholder="Buscar código o producto..." aria-label="Buscar producto"><div id="workerProductSuggestions" class="suggestions hidden"></div><select id="workerProduct" class="hidden" aria-label="Producto seleccionado"></select></div><input id="workerBoxes" type="text" inputmode="none" autocomplete="off" readonly value="0" placeholder="Cajas" aria-label="Cajas"><input id="workerUnits" type="text" inputmode="none" autocomplete="off" readonly value="0" placeholder="Unidades" aria-label="Unidades"></div><div id="workerNumberPad" class="numberPad hidden"><div class="padTitle">Teclado numérico · <span id="workerPadTarget">Cajas</span></div><div class="padGrid" id="workerPadKeys"></div></div><button id="addWorker" class="primary">+ Agregar conteo de colaborador</button></div>
@@ -1072,7 +1072,24 @@ $('clear').onclick=async()=>{
  }catch(error){alert(error.message)}
  finally{button.disabled=false}
 };
-function csv(rows,name){let s='\ufeff'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\r\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv;charset=utf-8'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+function exportSheet(XLSX,rows){
+ const sheet=XLSX.utils.aoa_to_sheet(rows);
+ const columns=rows[0].map((label,index)=>/^c[oó]digo/i.test(String(label).trim())?index:-1).filter(index=>index>=0);
+ for(let row=1;row<rows.length;row++)for(const column of columns){
+  const address=XLSX.utils.encode_cell({r:row,c:column});
+  sheet[address]={t:'s',v:String(rows[row][column]??''),z:'@'};
+ }
+ return sheet;
+}
+async function csv(rows,name){
+ try{
+  const XLSX=await loadExcelReader(),workbook=XLSX.utils.book_new();
+  const sheet=exportSheet(XLSX,rows);
+  sheet['!cols']=rows[0].map(label=>({wch:/producto/i.test(String(label))?45:20}));
+  XLSX.utils.book_append_sheet(workbook,sheet,'Datos');
+  XLSX.writeFile(workbook,name.replace(/\.csv$/i,'.xlsx'));
+ }catch(error){alert('No se pudo descargar el Excel: '+error.message)}
+}
 $('export').onclick=()=>csv([['Código','Producto',...(unitsOnly?[]:['Cajas']),'Unidades'],...counts.map(c=>[c.code,c.name,...(unitsOnly?[]:[c.boxes]),c.units])],'JUDABINV_'+base.replace(' ','_')+'.csv');
 $('sync').onclick=$('fetch').onclick=()=>alert('Firebase todavía no está conectado en esta prueba. No se ha sincronizado ningún dato.');
 
@@ -1329,7 +1346,7 @@ $('teamAdd').onclick=()=>{
    status.textContent='Preparando Excel…';
    const XLSX=await loadExcelReader();
    const workbook=XLSX.utils.book_new();
-   const sheet=XLSX.utils.aoa_to_sheet(table);
+   const sheet=exportSheet(XLSX,table);
    sheet['!cols']=(hasProfile?[22,16,42,12,18,16]:[16,42,12,18,16]).map(wch=>({wch}));
    XLSX.utils.book_append_sheet(workbook,sheet,hasProfile?'Conteos por perfil':'Consolidado');
    const title={profiles:'Todos_los_perfiles',selected:'Perfil_seleccionado'}[choice];
