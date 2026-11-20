@@ -1239,7 +1239,7 @@ $('filters').onclick=e=>{let b=e.target.closest('[data-filter]');if(!b)return;fi
 $('compareSearch').oninput=renderCompare;
 // V52: panel de colaboradores reales, secciones locales y consulta de conteos.
 const teamSectionKey='judabinv_v52_sections',teamStatusKey='judabinv_v52_status';
-let teamSections=[],teamStatuses={},teamSelected='principal';
+let saveProfileStatus;let teamSections=[],teamStatuses={},teamSelected='principal';
 try{let v=JSON.parse(localStorage.getItem(teamSectionKey)||'[]');if(Array.isArray(v))teamSections=v.filter(x=>x&&typeof x.name==='string')}catch{}
 try{teamStatuses=JSON.parse(localStorage.getItem(teamStatusKey)||'{}')||{}}catch{}
 function teamSave(){localStorage.setItem(teamSectionKey,JSON.stringify(teamSections));localStorage.setItem(teamStatusKey,JSON.stringify(teamStatuses))}
@@ -1326,7 +1326,12 @@ function v54RenderTeamModalRows(){
 }
 $('teamModalSearch').addEventListener('input',v54RenderTeamModalRows);
 function v54UpdateFinishButton(){const b=$('finishCurrentCount');if(!b)return;const done=teamStatuses[v36Selected]==='Finalizado';b.classList.toggle('isFinished',done);b.innerHTML=done?'<span>↶</span>Reabrir<br>conteo':'<span>✓</span>Finalizar<br>conteo'}
-$('finishCurrentCount').onclick=()=>{const done=teamStatuses[v36Selected]==='Finalizado',name=v36ActiveName();if(!confirm(done?'¿Reabrir el conteo de '+name+'?':'¿Finalizar el conteo de '+name+'? Podrás reabrirlo después.'))return;if(done)delete teamStatuses[v36Selected];else teamStatuses[v36Selected]='Finalizado';teamSave();renderSections();v54UpdateFinishButton()};
+$('finishCurrentCount').onclick=async()=>{
+ const button=$('finishCurrentCount'),done=teamStatuses[v36Selected]==='Finalizado',name=v36ActiveName();
+ if(button.disabled||!confirm(done?'¿Reabrir el conteo de '+name+'?':'¿Finalizar el conteo de '+name+'? Podrás reabrirlo después.'))return;
+ button.disabled=true;
+ try{if(!saveProfileStatus)throw Error('Abre una empresa para finalizar.');await saveProfileStatus(v36Selected,!done);if(done)delete teamStatuses[v36Selected];else teamStatuses[v36Selected]='Finalizado';teamSave();renderSections();render();v54UpdateFinishButton()}catch(error){alert(error.message)}finally{button.disabled=false}
+};
 const v54OriginalPage=page;page=function(name){v54OriginalPage(name);if(name==='conteo')v54UpdateFinishButton()};
 const v54OriginalSwitch=v36Switch;v36Switch=function(id){v54OriginalSwitch(id);v54UpdateFinishButton()};
 v54UpdateFinishButton();
@@ -1870,6 +1875,15 @@ window.addEventListener('pagehide',hideIntegratedPads);
     knownCloudProfiles=zones;
     v36People=v36People.filter(zone=>zone.id!==principalId&&!zone.archived);
     const profilesRef=collection(db,'judabinvCompanies',id,'profiles');
+    saveProfileStatus=async(profileId,done)=>{
+     const key=profileId==='principal'?principalId:profileId;
+     const ref=doc(profilesRef,key);
+     await runTransaction(db,async transaction=>{
+      const snapshot=await transaction.get(ref);
+      if(!snapshot.exists()||snapshot.data().detail==='archived')throw Error('El perfil ya no está disponible.');
+      transaction.update(ref,{detail:done?'finished':'',updatedAt:serverTimestamp()});
+     });
+    };
     archiveCloudProfile=async profile=>{
      const ref=doc(profilesRef,profile.id);
      await runTransaction(db,async transaction=>{
@@ -2106,9 +2120,13 @@ window.addEventListener('pagehide',hideIntegratedPads);
     }
 
     onSnapshot(profilesRef,snapshot=>{
+     teamStatuses={};
+     for(const item of snapshot.docs)if(item.data().detail==='finished')teamStatuses[item.id===principalId?'principal':item.id]='Finalizado';
+     teamSave();
      zones.clear();
      for(const item of snapshot.docs)zones.set(item.id,item.data().zone);
      v36People=snapshot.docs.filter(item=>item.id!==principalId&&item.data().detail!=='archived').map(item=>({id:item.id,name:item.data().zone}));
+     render();v54UpdateFinishButton();
     },()=>cloudState(false));
     onSnapshot(countsRef,snapshot=>{
      if(auth.currentUser?.uid!==user.uid)return;
