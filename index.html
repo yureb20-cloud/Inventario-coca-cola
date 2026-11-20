@@ -443,6 +443,24 @@ body.v60Worker #menu .baseMenuButtons{grid-template-columns:repeat(2,minmax(0,1f
 .cloudUnitsOnly #conteo .quant{grid-template-columns:minmax(0,1fr) 44px 44px}
 </style><link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./judabinv-192.png">
+
+<style id="desktop-layout">
+@media (min-width: 900px){
+ .app{width:calc(100% - 48px);max-width:1400px;padding-bottom:110px}
+ #conteo .fixedActions,.bottom,#consolidado .consolidateFixedActions,#colaboradores .teamActions,.teamGlobalSummary{width:calc(100% - 48px);max-width:1400px}
+ #allCountsView,#allCompareView,#teamModal{width:calc(100% - 48px);max-width:1400px}
+ .top{padding:18px 24px 12px}.logo{font-size:32px}
+ .tabs{margin-left:12px;margin-right:12px}.tabs button{padding:12px;font-size:15px}
+ .panel{padding:18px}.sectionhead{font-size:21px}
+ table,#conteo .countTable{font-size:15px}
+ td,th,#conteo .countTable td,#conteo .countTable th{padding:12px 14px;font-size:14px;line-height:1.5}
+ #conteo .countTable td:nth-child(2){font-size:14px;line-height:1.5;white-space:normal}
+ .compactEntry{max-width:880px;margin-left:auto;margin-right:auto}
+ #menu .baseMenuButtons{display:flex;gap:12px}#menu .baseMenuButtons button{flex:1;min-height:68px;font-size:14px}
+ .searchrow input{padding:15px;font-size:17px}
+ .filters button{font-size:14px}
+}
+</style>
 </head><body><div id="authGate"><div class="authCard"><div class="authBrand"><b>JU</b>DABINV</div><h2 id="authTitle">Configurar Superadministrador</h2><p class="authHint" id="authInfo">Primera apertura: crea tu cuenta principal. Se guardará únicamente en este navegador.</p><form id="authForm"><label for="authUser">Usuario</label><input id="authUser" required autocomplete="username" maxlength="40" placeholder="Tu nombre de usuario"><label for="authPass">Contraseña</label><input id="authPass" type="password" required autocomplete="new-password" placeholder="Tu contraseña"><div id="authConfirmWrap"><label for="authConfirm">Confirmar contraseña</label><input id="authConfirm" type="password" autocomplete="new-password" placeholder="Repite la contraseña"></div><label style="font-weight:normal"><input id="authShowPass" type="checkbox" style="display:inline;width:auto;margin-right:6px">Mostrar contraseña</label><p id="authError" class="authError" role="alert"></p><button class="authSubmit" id="authSubmit" type="submit">Crear cuenta de Superadministrador</button></form><p class="authHint">Importante: esta protección es local. No reemplaza la seguridad de Firebase ni impide que alguien con acceso al dispositivo manipule los archivos del navegador. No uses aquí una contraseña de otros servicios.</p></div></div><div class="app">
 <header class="top"><button class="hamb" id="menuToggle">☰</button><button type="button" class="headerOwner ownerButton" id="headerOwner" aria-label="Elegir conteo" aria-expanded="false">Principal ▾</button><div class="headerBrand"><div class="logo"><b>JU</b>DABINV</div><div class="sub">Inventario</div></div><span class="cloud" title="Sin conexión a Firebase">☁✕</span></header><div id="menu" class="menu" style="border-bottom:1px solid #555"><div class="baseMenuButtons"><button id="importBase" type="button"><span aria-hidden="true">📥</span>Importar</button><button id="exportBase" type="button"><span aria-hidden="true">📤</span>Exportar</button><button id="viewBase" type="button"><span aria-hidden="true">📋</span>Existencias</button><button id="cloudLogout" type="button" disabled><span aria-hidden="true">🚪</span>Cerrar sesión</button></div><input type="file" id="baseFile" accept=".xlsx,.xls,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden></div>
 <button type="button" id="authLogoutWorker">🚪 Cerrar sesión de colaborador</button><div id="ownerPicker" class="ownerPicker hidden"><div class="ownerPickerTitle"><strong>Inventario asignado</strong><button id="closeOwnerPicker" type="button" aria-label="Cerrar selector">✕</button></div><div class="accountStrip" id="accountStrip" aria-label="Seleccionar conteo"></div><p class="menuAccountsHint">Selecciona un conteo o usa ⋮ para editar su nombre.</p></div>
@@ -1640,7 +1658,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
  login.addEventListener('submit',event=>event.preventDefault());
  (async()=>{
   const sdk='https://www.gstatic.com/firebasejs/13.2.0/';
-  const [{initializeApp},{getAuth,setPersistence,browserLocalPersistence,signInWithEmailAndPassword,signOut,onAuthStateChanged},{initializeFirestore,persistentLocalCache,persistentMultipleTabManager,doc,collection,getDocFromServer,getDocsFromServer,getDocFromCache,getDocsFromCache,setDoc,runTransaction,serverTimestamp,writeBatch}]=await Promise.all([
+  const [{initializeApp},{getAuth,setPersistence,browserLocalPersistence,signInWithEmailAndPassword,signOut,onAuthStateChanged},{initializeFirestore,persistentLocalCache,persistentMultipleTabManager,doc,collection,getDocFromServer,getDocsFromServer,getDocFromCache,getDocsFromCache,onSnapshot,setDoc,runTransaction,serverTimestamp,writeBatch}]=await Promise.all([
    import(sdk+'firebase-app.js'),import(sdk+'firebase-auth.js'),import(sdk+'firebase-firestore.js')
   ]);
   const app = initializeApp({
@@ -1669,8 +1687,13 @@ window.addEventListener('pagehide',hideIntegratedPads);
    try{
 
     const offline=!navigator.onLine;
-    const readCompanyDoc=offline?getDocFromCache:getDocFromServer;
-    const superuser=offline?null:await getDocFromServer(doc(db,'judabinvSuperusers',user.uid)).catch(error=>{if(error.code!=='permission-denied')throw error;return null});
+    let quickStart=false;
+    try{quickStart=localStorage.getItem("judabinv-ready:"+user.uid)==="yes"}catch{}
+    const readCompanyDoc=async ref=>{
+     if(offline||quickStart){try{return await getDocFromCache(ref)}catch(error){if(offline)throw error}}
+     return getDocFromServer(ref);
+    };
+    const superuser=offline?null:await readCompanyDoc(doc(db,'judabinvSuperusers',user.uid)).catch(error=>{if(error.code!=='permission-denied')throw error;return null});
     if(superuser?.exists()&&superuser.data().enabled===true){
      const panel=document.createElement('main');
      panel.className='panel';
@@ -1820,6 +1843,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     const readCollections=(names,read)=>Promise.all(names.map(name=>read(collection(db,'judabinvCompanies',id,name))));
     async function readBase(){
      if(offline)return readCollections(baseCollections,getDocsFromCache);
+     if(quickStart){try{const cached=await readCollections(baseCollections,getDocsFromCache);if(!cached[0].empty)return cached}catch{}}
      let freshAt=0;
      try{freshAt=Number(localStorage.getItem(baseCacheKey))}catch{}
      const age=Date.now()-freshAt;
@@ -1835,7 +1859,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     }
     const [[catalog,stockRecords,barcodeRecords],[profiles,records]]=await Promise.all([
      readBase(),
-     readCollections(['profiles','counts'],offline?getDocsFromCache:getDocsFromServer)
+     readCollections(['profiles','counts'],offline||quickStart?getDocsFromCache:getDocsFromServer)
     ]);
     cloudState(navigator.onLine);
     const barcodes=new Map(barcodeRecords.docs.map(item=>[item.id,item.data().barcode]));
@@ -2068,6 +2092,32 @@ window.addEventListener('pagehide',hideIntegratedPads);
      showPending();
      void flushCounts();
     }
+    try{localStorage.setItem('judabinv-ready:'+user.uid,'yes')}catch{}
+    if(quickStart&&!offline){
+     quickStart=false;
+     void readBase().then(([catalog,stockRecords,barcodeRecords])=>{
+      if(auth.currentUser?.uid!==user.uid||importingBase)return;
+      const codes=new Map(barcodeRecords.docs.map(item=>[item.id,item.data().barcode]));
+      products=catalog.docs.map(item=>({...item.data(),cloudId:item.id,barcode:codes.get(item.id),unitsPerBox:item.data().pack}));
+      for(const [key,value] of codes)barcodes.set(key,value);
+      stocks=Object.fromEntries(stockRecords.docs.map(item=>[item.data().code,item.data().units]));
+      updateSelects();render();
+     }).catch(()=>cloudState(false));
+    }
+
+    onSnapshot(profilesRef,snapshot=>{
+     zones.clear();
+     for(const item of snapshot.docs)zones.set(item.id,item.data().zone);
+     v36People=snapshot.docs.filter(item=>item.id!==principalId&&item.data().detail!=='archived').map(item=>({id:item.id,name:item.data().zone}));
+    },()=>cloudState(false));
+    onSnapshot(countsRef,snapshot=>{
+     if(auth.currentUser?.uid!==user.uid)return;
+     const rows=snapshot.docs.map(item=>({...item.data(),id:item.id,personId:item.data().zoneId,person:zones.get(item.data().zoneId)??item.data().zoneName}));
+     principalCounts=rows.filter(row=>row.zoneId===principalId);
+     workerRows=rows.filter(row=>row.zoneId!==principalId);
+     for(const entry of queued)showQueued(entry);
+     counts=consolidateCounts(v36ActiveRows());render();showPending();
+    },()=>cloudState(false));
     window.addEventListener('online',flushCounts);
     el('sync').onclick=()=>{showPending();void flushCounts()};
     const menuButtons=el('menu').querySelector('.baseMenuButtons');
