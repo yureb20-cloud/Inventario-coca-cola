@@ -754,7 +754,7 @@ try{const data=JSON.parse(localStorage.getItem(v14key)||'{}');workerRows=Array.i
 function persistV14(){workerRows.forEach(w=>Object.assign(w,normalizedQty(w.boxes,w.units,packFor(w))));localStorage.setItem(v14key,JSON.stringify({workers:workerRows,stocks}));if(v36Selected!=='principal'){counts=consolidateCounts(v36ActiveRows());render()}else renderCompare()}
 function safeText(t){return String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function updateSelects(){for(const id of ['workerProduct','stockProduct']){let old=$(id).value;$(id).innerHTML=products.map(p=>`<option value="${safeText(p.code)}">${safeText(p.code)} · ${safeText(p.name)}</option>`).join('');if(products.some(p=>p.code===old))$(id).value=old;else if(id==='workerProduct')$(id).value=''}}
-function packFor(r){const p=products.find(p=>String(p.code)===String(r.code));for(const v of [p?.unitsPerBox,p?.units_per_box,p?.cantidadPorCaja,p?.cantidad_por_paca,p?.packSize,p?.pack]){const n=Number(v);if(Number.isSafeInteger(n)&&n>0)return n;}const m=String(p?.name||r.name).match(/\(\s*(\d{1,3})\s*\)/);return m?Number(m[1]):null}
+function packFor(r,indexedProduct){const p=indexedProduct??products.find(p=>String(p.code)===String(r.code));for(const v of [p?.unitsPerBox,p?.units_per_box,p?.cantidadPorCaja,p?.cantidad_por_paca,p?.packSize,p?.pack]){const n=Number(v);if(Number.isSafeInteger(n)&&n>0)return n;}const m=String(p?.name||r.name).match(/\(\s*(\d{1,3})\s*\)/);return m?Number(m[1]):null}
 function toTotal(boxes,units,pack){return pack===null?(boxes===0?units:null):boxes*pack+units}
 function normalizedQty(boxes,units,pack){
  const b=Number(boxes)||0,u=Number(units)||0;
@@ -763,8 +763,8 @@ function normalizedQty(boxes,units,pack){
  return {boxes:b+Math.floor(u/pack),units:u%pack};
 }
 function fmt(boxes,units,pack=null){const q=normalizedQty(boxes,units,pack);return unitsOnly?String(q.units):`${q.boxes} / ${q.units}`;}
-function stockFor(r){
- const p=products.find(p=>String(p.code)===String(r.code));
+function stockFor(r,indexedProduct){
+ const p=indexedProduct??products.find(p=>String(p.code)===String(r.code));
  // Existencias siempre en unidades, provenientes de la base de productos o del dato de prueba.
  for(const v of [p?.existencias,p?.existenciasUnidades,p?.stockUnits,p?.stock,p?.existence]){
   if(v!==undefined&&v!==null&&String(v).trim()!==''&&Number.isSafeInteger(Number(v)))return Number(v);
@@ -775,11 +775,12 @@ let knownCloudProfiles;
 function v49KnownWorker(w){if(w.personId&&knownCloudProfiles?.has(w.personId))return true;const person=v36People.find(p=>p.id===w.personId);return !!person || (!w.personId && v36People.some(p=>p.name.trim().toLowerCase()===String(w.person||'').trim().toLowerCase()));}
 function v49Orphans(){return workerRows.filter(w=>(Number(w.boxes)>0||Number(w.units)>0)&&!v49KnownWorker(w));}
 function compareData(){
+ const productIndex=new Map(products.map(p=>[String(p.code),p]));
  const map=new Map();
  for(const p of products)map.set(String(p.code),{code:String(p.code),name:p.name,pb:0,pu:0,wb:0,wu:0,detail:[],counted:false,inBase:true});
  for(const c of principalCounts){if(!c.boxes&&!c.units)continue;let r=map.get(String(c.code));if(!r){r={code:String(c.code),name:c.name,pb:0,pu:0,wb:0,wu:0,detail:[],counted:false,inBase:false};map.set(r.code,r)}r.counted=true;r.pb+=Number(c.boxes)||0;r.pu+=Number(c.units)||0}
  for(const w of workerRows.filter(v49KnownWorker)){if(!w.boxes&&!w.units)continue;let r=map.get(String(w.code));if(!r){r={code:String(w.code),name:w.name,pb:0,pu:0,wb:0,wu:0,detail:[],counted:false,inBase:false};map.set(r.code,r)}r.detail.push(w);r.counted=true;if(!mergedIds.includes(w.id)){r.wb+=Number(w.boxes)||0;r.wu+=Number(w.units)||0}}
- return [...map.values()].map(r=>{let pack=packFor(r),total=toTotal(r.pb+r.wb,r.pu+r.wu,pack),stock=stockFor(r);return {...r,pack,total,stock,diff:total===null||stock===null?null:total-stock}})
+ return [...map.values()].map(r=>{let pack=packFor(r,productIndex.get(r.code)),total=toTotal(r.pb+r.wb,r.pu+r.wu,pack),stock=stockFor(r,productIndex.get(r.code));return {...r,pack,total,stock,diff:total===null||stock===null?null:total-stock}})
 }
 let expandedCompareCode=null;
 function v49RefreshOrphans(){
@@ -806,14 +807,14 @@ function renderCompare(){
   const open=expandedCompareCode===r.code;
   const diff=r.diff===null?'—':(r.diff>0?'+':'')+r.diff;
   const klass=r.diff===null?'':r.diff<0?'v16DiffMinus':r.diff>0?'v16DiffPlus':'';
-  const detail=r.detail.filter(w=>Number(w.boxes)>0||Number(w.units)>0).map(w=>`<div class="v16Person"><div><strong>${safeText(w.person)}</strong><small>${fmt(w.boxes,w.units,r.pack)} (${unitsOnly?'unidades':'cajas / unidades'}) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'}</small></div>${mergedIds.includes(w.id)?'':`<button type="button" class="v18Pencil" data-edit-worker="${safeText(w.id)}" aria-label="Editar conteo">✎</button><button type="button" class="v50Delete" data-delete-worker="${safeText(w.id)}" aria-label="Eliminar conteo del colaborador">🗑</button>`}</div>`).join('');
-  const principal=principalCounts.filter(row=>String(row.code)===String(r.code)&&(row.boxes||row.units)).map(row=>`<div class="v16Person"><div><strong>Conteo principal</strong><small>${fmt(row.boxes,row.units,row.pack??r.pack)} (${unitsOnly?'unidades':'cajas / unidades'})</small></div>${canEditDemoRow(row)?`<button type="button" class="v18Pencil" data-edit-worker="${safeText(row.id)}">✎</button>`:""}</div>`).join("");
+  const detail=(open?r.detail:[]).filter(w=>Number(w.boxes)>0||Number(w.units)>0).map(w=>`<div class="v16Person"><div><strong>${safeText(w.person)}</strong><small>${fmt(w.boxes,w.units,r.pack)} (${unitsOnly?'unidades':'cajas / unidades'}) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'}</small></div>${mergedIds.includes(w.id)?'':`<button type="button" class="v18Pencil" data-edit-worker="${safeText(w.id)}" aria-label="Editar conteo">✎</button><button type="button" class="v50Delete" data-delete-worker="${safeText(w.id)}" aria-label="Eliminar conteo del colaborador">🗑</button>`}</div>`).join('');
+  const principal=(open?principalCounts:[]).filter(row=>String(row.code)===String(r.code)&&(row.boxes||row.units)).map(row=>`<div class="v16Person"><div><strong>Conteo principal</strong><small>${fmt(row.boxes,row.units,row.pack??r.pack)} (${unitsOnly?'unidades':'cajas / unidades'})</small></div>${canEditDemoRow(row)?`<button type="button" class="v18Pencil" data-edit-worker="${safeText(row.id)}">✎</button>`:""}</div>`).join("");
   const count=fmt(r.pb+r.wb,r.pu+r.wu,r.pack);
   const secondary=r.stock===null?'—':r.stock;
   const warn='';
   return `<tr><td>${safeText(r.code)}</td><td class="v16Name">${safeText(r.name)}</td><td><button type="button" class="v16Qty" data-expand-code="${safeText(r.code)}" aria-expanded="${open}">${count} ${open?'▴':'▾'}</button></td><td>${secondary}</td><td class="${klass}">${diff}${warn}</td></tr>${open?`<tr class="v16Expanded"><td colspan="5"><div class="v22People"><div class="v22PeopleTitle">☏ Detalle por persona · ${safeText(r.code)}</div><div class="v16Detail">${principal}${detail||'<span class="v16Empty">No hay colaboradores con conteo en esta referencia.</span>'}</div></div></td></tr>`:''}`;
  }).join('')||'<tr><td colspan="5">No hay resultados para este filtro.</td></tr>';
- const active=workerRows.filter(w=>v49KnownWorker(w)&&(Number(w.boxes)>0||Number(w.units)>0));
+ const active=$('workerDetail').hidden?[]:workerRows.filter(w=>v49KnownWorker(w)&&(Number(w.boxes)>0||Number(w.units)>0));
  $('workerDetail').innerHTML=active.length?active.map(w=>`<div class="detailItem"><strong>${safeText(w.person)}</strong> · ${safeText(w.code)} · ${safeText(w.name)}<br>${fmt(w.boxes,w.units,packFor(w))} (${unitsOnly?'unidades':'cajas / unidades'}) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'} <button type="button" data-edit-worker="${safeText(w.id)}">Editar</button> <button type="button" data-delete-worker="${safeText(w.id)}">Quitar</button></div>`).join(''):'Todavía no hay conteos de colaboradores.';
  const counted=rows.filter(r=>r.counted).length,missing=rows.filter(r=>r.diff===null).length;
  v50UpdateChart(rows);
@@ -1291,7 +1292,8 @@ async function handleCountAction(event){
 $('countRows').addEventListener('click',handleCountAction);
 $('allCountsRows').addEventListener('click',handleCountAction);
 $('filters').onclick=e=>{let b=e.target.closest('[data-filter]');if(!b)return;filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('selected',x===b));renderCompare()};
-$('compareSearch').oninput=renderCompare;
+let compareSearchTimer;
+$('compareSearch').oninput=()=>{clearTimeout(compareSearchTimer);compareSearchTimer=setTimeout(renderCompare,120)};
 // V52: panel de colaboradores reales, secciones locales y consulta de conteos.
 const teamSectionKey='judabinv_v52_sections',teamStatusKey='judabinv_v52_status';
 let saveProfileStatus;let teamSections=[],teamStatuses={},teamSelected='principal';
