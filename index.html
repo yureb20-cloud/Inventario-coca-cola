@@ -491,8 +491,14 @@ body.v60Worker #menu .baseMenuButtons{grid-template-columns:repeat(2,minmax(0,1f
  .desktopBrandSubtitle{display:block;font-size:11px;line-height:1.5;letter-spacing:1px;text-transform:uppercase;margin-top:5px}
 }
 </style><link rel="icon" type="image/png" href="./judabinv-192.png?v=jdb1">
-</head><body><div id="authGate"><div class="authCard"><div class="authBrand"><b>JU</b>DABINV</div><h2 id="authTitle">Configurar Superadministrador</h2><p class="authHint" id="authInfo">Primera apertura: crea tu cuenta principal. Se guardará únicamente en este navegador.</p><form id="authForm"><label for="authUser">Usuario</label><input id="authUser" required autocomplete="username" maxlength="40" placeholder="Tu nombre de usuario"><label for="authPass">Contraseña</label><input id="authPass" type="password" required autocomplete="new-password" placeholder="Tu contraseña"><div id="authConfirmWrap"><label for="authConfirm">Confirmar contraseña</label><input id="authConfirm" type="password" autocomplete="new-password" placeholder="Repite la contraseña"></div><label style="font-weight:normal"><input id="authShowPass" type="checkbox" style="display:inline;width:auto;margin-right:6px">Mostrar contraseña</label><p id="authError" class="authError" role="alert"></p><button class="authSubmit" id="authSubmit" type="submit">Crear cuenta de Superadministrador</button></form><p class="authHint">Importante: esta protección es local. No reemplaza la seguridad de Firebase ni impide que alguien con acceso al dispositivo manipule los archivos del navegador. No uses aquí una contraseña de otros servicios.</p></div></div><div class="app">
-<header class="top"><button class="hamb" id="menuToggle">☰</button><button type="button" class="headerOwner ownerButton" id="headerOwner" aria-label="Elegir conteo" aria-expanded="false">Principal ▾</button><div class="headerBrand"><div class="logo"><b>JU</b>DABINV</div><div class="sub">Inventario</div><div class="desktopBrandSubtitle">Sistema de inventario y conteo de productos</div></div><span class="cloud" title="Sin conexión a Firebase">☁✕</span></header><div id="menu" class="menu" style="border-bottom:1px solid #555"><div class="baseMenuButtons"><button id="importBase" type="button"><span aria-hidden="true">📥</span>Importar</button><button id="exportBase" type="button"><span aria-hidden="true">📤</span>Exportar</button><button id="viewBase" type="button"><span aria-hidden="true">📋</span>Existencias</button><button id="cloudLogout" type="button" disabled><span aria-hidden="true">🚪</span>Cerrar sesión</button></div><input type="file" id="baseFile" accept=".xlsx,.xls,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden></div>
+<style id="company-header-style">
+.top .headerCompany{font-family:Arial,Helvetica,sans-serif;font-style:italic;font-weight:900;color:#fff;font-size:clamp(17px,5vw,22px);line-height:1.15;overflow-wrap:anywhere;min-width:0;text-align:center}
+.top .headerCompany:first-letter{color:#ed0714}
+.top:has(.headerCompany:not(:empty)){display:grid!important;grid-template-columns:26px minmax(65px,auto) minmax(50px,1fr) minmax(90px,1.4fr) 28px;gap:6px}
+.top:has(.headerCompany:not(:empty)) .headerBrand{min-width:0;width:100%;padding:0}
+@media(min-width:1100px){.top .headerCompany{font-size:34px}.top:has(.headerCompany:not(:empty)){grid-template-columns:30px 130px minmax(100px,1fr) minmax(300px,2fr) 36px}.top:has(.headerCompany:not(:empty)) .headerBrand{padding:0 65px}}
+</style></head><body><div id="authGate"><div class="authCard"><div class="authBrand"><b>JU</b>DABINV</div><h2 id="authTitle">Configurar Superadministrador</h2><p class="authHint" id="authInfo">Primera apertura: crea tu cuenta principal. Se guardará únicamente en este navegador.</p><form id="authForm"><label for="authUser">Usuario</label><input id="authUser" required autocomplete="username" maxlength="40" placeholder="Tu nombre de usuario"><label for="authPass">Contraseña</label><input id="authPass" type="password" required autocomplete="new-password" placeholder="Tu contraseña"><div id="authConfirmWrap"><label for="authConfirm">Confirmar contraseña</label><input id="authConfirm" type="password" autocomplete="new-password" placeholder="Repite la contraseña"></div><label style="font-weight:normal"><input id="authShowPass" type="checkbox" style="display:inline;width:auto;margin-right:6px">Mostrar contraseña</label><p id="authError" class="authError" role="alert"></p><button class="authSubmit" id="authSubmit" type="submit">Crear cuenta de Superadministrador</button></form><p class="authHint">Importante: esta protección es local. No reemplaza la seguridad de Firebase ni impide que alguien con acceso al dispositivo manipule los archivos del navegador. No uses aquí una contraseña de otros servicios.</p></div></div><div class="app">
+<header class="top"><button class="hamb" id="menuToggle">☰</button><button type="button" class="headerOwner ownerButton" id="headerOwner" aria-label="Elegir conteo" aria-expanded="false">Principal ▾</button><span id="headerCompany" class="headerCompany"></span><div class="headerBrand"><div class="logo"><b>JU</b>DABINV</div><div class="sub">Inventario</div><div class="desktopBrandSubtitle">Sistema de inventario y conteo de productos</div></div><span class="cloud" title="Sin conexión a Firebase">☁✕</span></header><div id="menu" class="menu" style="border-bottom:1px solid #555"><div class="baseMenuButtons"><button id="importBase" type="button"><span aria-hidden="true">📥</span>Importar</button><button id="exportBase" type="button"><span aria-hidden="true">📤</span>Exportar</button><button id="viewBase" type="button"><span aria-hidden="true">📋</span>Existencias</button><button id="cloudLogout" type="button" disabled><span aria-hidden="true">🚪</span>Cerrar sesión</button></div><input type="file" id="baseFile" accept=".xlsx,.xls,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden></div>
 <button type="button" id="authLogoutWorker">🚪 Cerrar sesión de colaborador</button><div id="ownerPicker" class="ownerPicker hidden"><div class="ownerPickerTitle"><strong>Inventario asignado</strong><button id="closeOwnerPicker" type="button" aria-label="Cerrar selector">✕</button></div><div class="accountStrip" id="accountStrip" aria-label="Seleccionar conteo"></div><p class="menuAccountsHint">Selecciona un conteo o usa ⋮ para editar su nombre.</p></div>
 <nav class="bottom"><button class="active" data-page="conteo"><span>⌂</span>Conteo</button><button data-page="consolidado"><span>▱</span>Consolidado</button><button data-page="colaboradores"><span>♧</span>Colaboradores</button><button data-page="ajustes"><span>⚙</span>Ajustes</button></nav>
 <div id="accountMenu" class="accountMenu hidden"><button id="accountRename" type="button">✎ Editar nombre</button><button id="accountArchive" type="button" class="danger">Eliminar perfil</button></div>
@@ -578,6 +584,7 @@ function consolidateCounts(rows){
 }
 // V36: Principal mantiene la clave histórica; colaboradores guardan sus conteos en workerRows.
 const v36PeopleKey='judabinv_v36_people';
+let activeProfileStorageKey=null;
 let v36People=[],v36Selected='principal',v36MenuId=null,principalCounts=[];
 try{const saved=JSON.parse(localStorage.getItem(v36PeopleKey)||'[]');if(Array.isArray(saved))v36People=saved.filter(x=>x&&typeof x.id==='string'&&typeof x.name==='string')}catch{}
 function v36PersistPeople(){localStorage.setItem(v36PeopleKey,JSON.stringify(v36People));v47RefreshWorkerPicker()}
@@ -594,7 +601,7 @@ function v47RefreshWorkerPicker(){
 function v36ActiveName(){return v36Selected==='principal'?'Principal':(v36People.find(x=>x.id===v36Selected)?.name||'Principal')}
 function v36ActiveRows(){if(v36Selected==='principal')return principalCounts.map(x=>({...x}));const person=v36People.find(x=>x.id===v36Selected);return person?workerRows.filter(w=>w.personId===person.id||(!w.personId&&w.person===person.name)).map(w=>({...w})):[]}
 function v36RenderAccounts(){const strip=$('accountStrip');const scroll=strip.scrollLeft;strip.innerHTML='';const create=(id,name)=>{if(role==='worker'&&id==='principal')return;const wrapper=document.createElement('div');wrapper.className='accountItem'+(v36Selected===id?' current':'');const select=document.createElement('button');select.className='accountSelect';select.type='button';select.textContent=name;select.onclick=()=>v36Switch(id);wrapper.appendChild(select);if(id!=='principal'){const dots=document.createElement('button');dots.className='accountDots';dots.type='button';dots.textContent='⋮';dots.setAttribute('aria-label','Opciones de '+name);dots.onclick=e=>{e.stopPropagation();v36OpenMenu(id,dots)};wrapper.appendChild(dots)}strip.appendChild(wrapper)};create('principal','Principal');v36People.forEach(p=>create(p.id,p.name));const plus=document.createElement('button');plus.id='accountAdd';plus.className='accountAdd';plus.type='button';plus.textContent='+ Agregar conteo';plus.setAttribute('aria-label','Agregar conteo');plus.onclick=v36Add;strip.appendChild(plus);strip.scrollLeft=scroll}
-function v36Switch(id){if(role==='worker'&&id==='principal'&&v36People.length)return;if(id!=='principal'&&!v36People.some(p=>p.id===id))return;v36CloseMenu();v36Selected=id;base=v36ActiveName();counts=consolidateCounts(v36ActiveRows());$('numberPad').classList.add('hidden');$('search').value='';$('boxes').value='';$('units').value='';$('found').textContent='';$('suggestions').classList.add('hidden');v36RenderAccounts();$('headerOwner').textContent=v36ActiveName()+' ▾';$('ownerPicker').classList.add('hidden');$('headerOwner').setAttribute('aria-expanded','false');$('menu').classList.remove('open');render()}
+function v36Switch(id){if(role==='worker'&&id==='principal'&&v36People.length)return;if(id!=='principal'&&!v36People.some(p=>p.id===id))return;v36CloseMenu();v36Selected=id;if(activeProfileStorageKey){try{localStorage.setItem(activeProfileStorageKey,id)}catch{}}base=v36ActiveName();counts=consolidateCounts(v36ActiveRows());$('numberPad').classList.add('hidden');$('search').value='';$('boxes').value='';$('units').value='';$('found').textContent='';$('suggestions').classList.add('hidden');v36RenderAccounts();$('headerOwner').textContent=v36ActiveName()+' ▾';$('ownerPicker').classList.add('hidden');$('headerOwner').setAttribute('aria-expanded','false');$('menu').classList.remove('open');render()}
 let writeCloudProfile; let archiveCloudProfile;
 let profileSaving=false;
 async function saveProfile(profile){
@@ -682,6 +689,7 @@ function countActions(row){
  return `<span class="countActions"><button type="button" aria-label="Editar" data-row-edit="${id}">✎</button><button type="button" aria-label="Quitar" data-row-remove="${id}">🗑</button></span>`;
 }
 function renderCountList(view){
+ document.querySelectorAll('#conteo .countTable th:nth-child(3),#allCountsView th:nth-child(3)').forEach(cell=>cell.textContent=unitsOnly?'Unidades':'CJ / UND');
  const state=countViewState[view], all=view==='all';
  const showStock=role==='admin'&&v36Selected==='principal';
  $(all?'allCountBase':'countBase').hidden=$(all?'allCountDifference':'countDifference').hidden=!showStock;
@@ -698,7 +706,7 @@ function renderCountList(view){
    return sum;
   },{boxes:0,units:0});
   const label=$('recentCountTotals');
-  label.textContent='Total: '+countedProducts.length+' productos · '+totals.boxes+' CJ / '+totals.units+' UND';
+  label.textContent='Total: '+countedProducts.length+' productos · '+(unitsOnly?totals.units+' UND':totals.boxes+' CJ / '+totals.units+' UND');
  }
  const byCode=new Map();
  for(const row of entries){
@@ -724,7 +732,7 @@ function renderCountList(view){
   const pack=packFor(product),stock=stockFor(product),total=toTotal(product.boxes,product.units,pack);
   const diff=total===null?'—':total-stock;
   const details=open?(byCode.get(code)??[]).map(row=>
-   `<div class="v16Person"><div><strong>${safeText(row.person||v36ActiveName())}</strong><small>${safeText(fmt(row.boxes,row.units,row.pack))} (cajas / unidades)</small></div>${countActions(row)}</div>`
+   `<div class="v16Person"><div><strong>${safeText(row.person||v36ActiveName())}</strong><small>${safeText(fmt(row.boxes,row.units,row.pack))} (${unitsOnly?'unidades':'cajas / unidades'})</small></div>${countActions(row)}</div>`
   ).join(''):'';
   return `<tr><td>${safeText(code)}</td><td>${safeText(product.name)}</td><td><button type="button" class="countQuantity" data-count-detail="${safeText(code)}" aria-expanded="${open}">${safeText(fmt(product.boxes,product.units,pack))} ${open?'▴':'▾'}</button></td>${showStock?`<td>${stock}</td><td>${diff>0?'+':''}${diff}</td>`:''}</tr>${open?`<tr class="countHistoryRow"><td colspan="${columns}"><div class="countHistory"><strong>Detalle del conteo · ${safeText(code)}</strong>${details}</div></td></tr>`:''}`;
  }).join('')||`<tr><td colspan="${columns}">No hay productos para mostrar.</td></tr>`;
@@ -754,7 +762,7 @@ function normalizedQty(boxes,units,pack){
  if(!pack||!Number.isSafeInteger(pack)||pack<=0)return {boxes:b,units:u};
  return {boxes:b+Math.floor(u/pack),units:u%pack};
 }
-function fmt(boxes,units,pack=null){const q=normalizedQty(boxes,units,pack);return `${q.boxes} / ${q.units}`;}
+function fmt(boxes,units,pack=null){const q=normalizedQty(boxes,units,pack);return unitsOnly?String(q.units):`${q.boxes} / ${q.units}`;}
 function stockFor(r){
  const p=products.find(p=>String(p.code)===String(r.code));
  // Existencias siempre en unidades, provenientes de la base de productos o del dato de prueba.
@@ -793,20 +801,20 @@ function renderCompare(){
  let q=$('compareSearch').value.trim().toLowerCase();
  let rows=compareData().filter(r=>(compareTab==='stock'?r.inBase:r.counted)&& (r.code+' '+r.name).toLowerCase().includes(q));
  let shown=rows.filter(r=>filter==='todos'||(r.diff!==null&&(filter==='sobrantes'?r.diff>0:filter==='faltantes'?r.diff<0:r.diff===0)));
- $('compareHead').innerHTML='<tr><th>Código</th><th>Producto</th><th>CJ / UND ▾</th><th>'+ 'Base' +'</th><th>Dif.</th></tr>';
+ $('compareHead').innerHTML='<tr><th>Código</th><th>Producto</th><th>'+ (unitsOnly?'Unidades ▾':'CJ / UND ▾') +'</th><th>'+ 'Base' +'</th><th>Dif.</th></tr>';
  $('compareRows').innerHTML=shown.map(r=>{
   const open=expandedCompareCode===r.code;
   const diff=r.diff===null?'—':(r.diff>0?'+':'')+r.diff;
   const klass=r.diff===null?'':r.diff<0?'v16DiffMinus':r.diff>0?'v16DiffPlus':'';
-  const detail=r.detail.filter(w=>Number(w.boxes)>0||Number(w.units)>0).map(w=>`<div class="v16Person"><div><strong>${safeText(w.person)}</strong><small>${fmt(w.boxes,w.units,r.pack)} (cajas / unidades) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'}</small></div>${mergedIds.includes(w.id)?'':`<button type="button" class="v18Pencil" data-edit-worker="${safeText(w.id)}" aria-label="Editar conteo">✎</button><button type="button" class="v50Delete" data-delete-worker="${safeText(w.id)}" aria-label="Eliminar conteo del colaborador">🗑</button>`}</div>`).join('');
-  const principal=principalCounts.filter(row=>String(row.code)===String(r.code)&&(row.boxes||row.units)).map(row=>`<div class="v16Person"><div><strong>Conteo principal</strong><small>${fmt(row.boxes,row.units,row.pack??r.pack)} (cajas / unidades)</small></div>${canEditDemoRow(row)?`<button type="button" class="v18Pencil" data-edit-worker="${safeText(row.id)}">✎</button>`:""}</div>`).join("");
+  const detail=r.detail.filter(w=>Number(w.boxes)>0||Number(w.units)>0).map(w=>`<div class="v16Person"><div><strong>${safeText(w.person)}</strong><small>${fmt(w.boxes,w.units,r.pack)} (${unitsOnly?'unidades':'cajas / unidades'}) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'}</small></div>${mergedIds.includes(w.id)?'':`<button type="button" class="v18Pencil" data-edit-worker="${safeText(w.id)}" aria-label="Editar conteo">✎</button><button type="button" class="v50Delete" data-delete-worker="${safeText(w.id)}" aria-label="Eliminar conteo del colaborador">🗑</button>`}</div>`).join('');
+  const principal=principalCounts.filter(row=>String(row.code)===String(r.code)&&(row.boxes||row.units)).map(row=>`<div class="v16Person"><div><strong>Conteo principal</strong><small>${fmt(row.boxes,row.units,row.pack??r.pack)} (${unitsOnly?'unidades':'cajas / unidades'})</small></div>${canEditDemoRow(row)?`<button type="button" class="v18Pencil" data-edit-worker="${safeText(row.id)}">✎</button>`:""}</div>`).join("");
   const count=fmt(r.pb+r.wb,r.pu+r.wu,r.pack);
   const secondary=r.stock===null?'—':r.stock;
   const warn='';
   return `<tr><td>${safeText(r.code)}</td><td class="v16Name">${safeText(r.name)}</td><td><button type="button" class="v16Qty" data-expand-code="${safeText(r.code)}" aria-expanded="${open}">${count} ${open?'▴':'▾'}</button></td><td>${secondary}</td><td class="${klass}">${diff}${warn}</td></tr>${open?`<tr class="v16Expanded"><td colspan="5"><div class="v22People"><div class="v22PeopleTitle">☏ Detalle por persona · ${safeText(r.code)}</div><div class="v16Detail">${principal}${detail||'<span class="v16Empty">No hay colaboradores con conteo en esta referencia.</span>'}</div></div></td></tr>`:''}`;
  }).join('')||'<tr><td colspan="5">No hay resultados para este filtro.</td></tr>';
  const active=workerRows.filter(w=>v49KnownWorker(w)&&(Number(w.boxes)>0||Number(w.units)>0));
- $('workerDetail').innerHTML=active.length?active.map(w=>`<div class="detailItem"><strong>${safeText(w.person)}</strong> · ${safeText(w.code)} · ${safeText(w.name)}<br>${fmt(w.boxes,w.units,packFor(w))} (cajas / unidades) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'} <button type="button" data-edit-worker="${safeText(w.id)}">Editar</button> <button type="button" data-delete-worker="${safeText(w.id)}">Quitar</button></div>`).join(''):'Todavía no hay conteos de colaboradores.';
+ $('workerDetail').innerHTML=active.length?active.map(w=>`<div class="detailItem"><strong>${safeText(w.person)}</strong> · ${safeText(w.code)} · ${safeText(w.name)}<br>${fmt(w.boxes,w.units,packFor(w))} (${unitsOnly?'unidades':'cajas / unidades'}) ${mergedIds.includes(w.id)?'· Incluido en principal':'· Colaborador'} <button type="button" data-edit-worker="${safeText(w.id)}">Editar</button> <button type="button" data-delete-worker="${safeText(w.id)}">Quitar</button></div>`).join(''):'Todavía no hay conteos de colaboradores.';
  const counted=rows.filter(r=>r.counted).length,missing=rows.filter(r=>r.diff===null).length;
  v50UpdateChart(rows);
  $('compareSummary').textContent=`${compareTab==='stock'?'Referencias de la base':'Referencias registradas'}: ${rows.length} · Con conteo: ${counted} · Sobrantes: ${rows.filter(r=>r.diff>0).length} · Iguales: ${rows.filter(r=>r.diff===0).length} · Faltantes: ${rows.filter(r=>r.diff<0).length} · Sin comparación: ${missing}. Diferencias expresadas en unidades.`;
@@ -829,7 +837,7 @@ function openEdit(kind,id){
 }
 // V29: teclado propio en edición de principal y colaboradores.
 let v29ActiveEdit='v18EditBoxes';
-const v29EditKeys=['1','2','3','÷','4','5','6','×','7','8','9','−','C','0','⌫','+','=','Enter'];
+const v29EditKeys=['7','8','9','÷','4','5','6','×','1','2','3','−','C','0','⌫','+','=','Enter'];
 $('v29EditPadKeys').innerHTML=v29EditKeys.map(k=>'<button type="button" data-edit-pad="'+k+'">'+k+'</button>').join('');
 function v29SelectEditField(id){
  v29ActiveEdit=id;
@@ -990,7 +998,7 @@ $('search').addEventListener('click',()=>{
 });
 $('search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();let p=product()||products.find(p=>(p.code+' '+p.name).toLowerCase().includes($('search').value.trim().toLowerCase()));if(p)selectProduct(p)}});function evalMath(value){if(String(value).trim()==='')return 0;let expr=String(value).trim().replaceAll('×','*').replaceAll('÷','/').replaceAll('−','-');if(!/^[0-9+*/().\\s-]+$/.test(expr)||!expr||expr.length>90)return NaN;try{let v=Function('"use strict";return ('+expr+')')();return Number.isSafeInteger(v)&&v>=0?v:NaN}catch{return NaN}}
 function commit(id){let v=evalMath($(id).value);if(!Number.isFinite(v)){alert('Operación inválida. Usa resultados enteros no negativos.');return false}$(id).value=String(v);return true}
-const pad=['1','2','3','÷','4','5','6','×','7','8','9','−','C','0','⌫','+','=','Enter'];
+const pad=['7','8','9','÷','4','5','6','×','1','2','3','−','C','0','⌫','+','=','Enter'];
 $('padKeys').innerHTML=pad.map(k=>'<button type="button" data-pad="'+k+'">'+k+'</button>').join('');
 
 // V24: buscador compacto para elegir producto sin abrir el selector gigante de Android.
@@ -1050,7 +1058,7 @@ try {
  button.disabled = false;
 }
 };
-$('calcToggle').onclick=()=>$('calculator').classList.toggle('hidden');$('calcKeys').innerHTML=['1','2','3','÷','4','5','6','×','7','8','9','−','0','C','=','+'].map(k=>`<button data-key="${k}">${k}</button>`).join('');
+$('calcToggle').onclick=()=>$('calculator').classList.toggle('hidden');$('calcKeys').innerHTML=['7','8','9','÷','4','5','6','×','1','2','3','−','0','C','=','+'].map(k=>`<button data-key="${k}">${k}</button>`).join('');
 $('calcKeys').onclick=e=>{let k=e.target.dataset.key;if(!k)return;let x=$('expr');if(k==='C')return x.value='';if(k==='='){let v=x.value.replaceAll('×','*').replaceAll('÷','/').replaceAll('−','-');if(!/^[0-9+\-*/ ()]+$/.test(v))return alert('Operación no válida');try{let z=Function('"use strict";return ('+v+')')();if(!Number.isInteger(z)||z<0)throw Error();x.value=z;$(last).value=z}catch{alert('El resultado debe ser entero y no negativo')}return}x.value+=k};
 $('clear').onclick=async()=>{
  const rows=v36ActiveRows().filter(row=>canEditDemoRow(row)&&(row.boxes||row.units));
@@ -1362,7 +1370,7 @@ $('teamDetail').onclick=e=>{const b=e.target.closest('[data-team-action]');if(!b
  /* previous renderer disabled */ if(false) $('teamModalBody').innerHTML=rows.length?`<table><thead><tr><th>Código</th><th>Producto</th><th>Cajas / Und.</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${safeText(r.code)}</td><td>${safeText(r.name||products.find(p=>String(p.code)===String(r.code))?.name||'')}</td><td>${Number(r.boxes)||0} / ${Number(r.units)||0}</td></tr>`).join('')}</tbody></table>`:'<p class="note">Este colaborador todavía no tiene conteos.</p>';
  $('teamModal').classList.remove('hidden');hideIntegratedPads();
  }
- else if(act==='edit'){v36Selected=teamSelected;v36RenderAccounts();page('conteo');window.scrollTo({top:0,behavior:'smooth'});}
+ else if(act==='edit'){v36Switch(teamSelected);v36RenderAccounts();page('conteo');window.scrollTo({top:0,behavior:'smooth'});}
 };
 $('teamNewSection').onclick=()=>{let name=prompt('Nombre de la sección (por ejemplo, Bodega o Isla):');if(!name?.trim())return;teamSections.push({id:'sec_'+Date.now(),name:name.trim().slice(0,50),personId:teamSelected});teamSave();renderSections()};
 $('teamSections').onclick=e=>{let edit=e.target.closest('[data-team-section-edit]'),del=e.target.closest('[data-team-section-delete]');let id=edit?.dataset.teamSectionEdit||del?.dataset.teamSectionDelete;if(!id)return;let x=teamSections.find(y=>y.id===id);if(!x)return;if(edit){let n=prompt('Nombre de la sección:',x.name);if(n?.trim())x.name=n.trim().slice(0,50)}else if(confirm('¿Eliminar la sección '+x.name+'? Esto no elimina los conteos.'))teamSections=teamSections.filter(y=>y.id!==id);teamSave();renderSections()};
@@ -1741,11 +1749,11 @@ window.addEventListener('pagehide',hideIntegratedPads);
     const offline=!navigator.onLine;
     let quickStart=false;
     try{quickStart=localStorage.getItem("judabinv-ready:"+user.uid)==="yes"}catch{}
-    const readCompanyDoc=async ref=>{
-     if(offline||quickStart){try{return await getDocFromCache(ref)}catch(error){if(offline)throw error}}
+    const readCompanyDoc=async(ref,optional=false)=>{
+     if(offline||quickStart){try{return await getDocFromCache(ref)}catch(error){if(optional)return null;if(offline)throw error}}
      return getDocFromServer(ref);
     };
-    const superuser=offline?null:await readCompanyDoc(doc(db,'judabinvSuperusers',user.uid)).catch(error=>{if(error.code!=='permission-denied')throw error;return null});
+    const superuser=offline?null:await readCompanyDoc(doc(db,'judabinvSuperusers',user.uid),true).catch(error=>{if(error.code!=='permission-denied')throw error;return null});
     if(superuser?.exists()&&superuser.data().enabled===true){
      const panel=document.createElement('main');
      panel.className='panel';
@@ -1885,7 +1893,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
      gate.classList.add('authHidden');
      return;
     }
-    const member=await readCompanyDoc(doc(db,'judabinvMemberships',user.uid)).catch(error=>{if(offline&&error.code==='unavailable')return null;throw error});
+    const member=await readCompanyDoc(doc(db,'judabinvMemberships',user.uid),true).catch(error=>{if(offline&&error.code==='unavailable')return null;throw error});
     const id=member?.exists()?member.data().companyId:user.uid;
     if(typeof id!=='string'||!id||id.includes('/'))throw Error('Vinculación inválida.');
     const company=await readCompanyDoc(doc(db,'judabinvCompanies',id));
@@ -2136,9 +2144,23 @@ window.addEventListener('pagehide',hideIntegratedPads);
      banner.append(seed);
     }
     unlock({type,username:user.email});
+    document.body.dataset.companyName=company.data().name;
+    const displayCompanyName=/^zeus$/i.test(company.data().name.trim())?'Zeuss':company.data().name;
+    el('headerCompany').textContent=displayCompanyName;
+    el('headerCompany').title=displayCompanyName;
     el('companyCurrent').textContent='Empresa: '+company.data().name;
     updateSelects();
-    v36Switch(type==='admin'?'principal':(v36People[0]?.id??'principal'));
+    activeProfileStorageKey='judabinv-active-profile:'+JSON.stringify([user.uid,id]);
+    let rememberedProfile=null;
+    try{rememberedProfile=localStorage.getItem(activeProfileStorageKey)}catch{}
+    const availableProfile=rememberedProfile==='principal'?type==='admin':v36People.some(profile=>profile.id===rememberedProfile);
+    if(rememberedProfile&&!availableProfile){
+     v36Selected='unavailable';counts=[];render();v36RenderAccounts();
+     el('headerOwner').textContent='Selecciona un perfil ▾';
+     el('ownerPicker').classList.remove('hidden');
+     el('demoStatus').textContent='El perfil anterior no está disponible. Selecciona dónde continuar contando.';
+    }else v36Switch(rememberedProfile??(type==='admin'?'principal':(v36People[0]?.id??'principal')));
+
     page('conteo');
     render();
         const status=document.createElement('span');
