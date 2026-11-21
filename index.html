@@ -1744,6 +1744,16 @@ window.addEventListener('pagehide',hideIntegratedPads);
   const openCompany=async user=>{
    loginButton.disabled=true;
    el('authError').textContent='';
+   let progress=el('authLoading');
+   if(!progress){
+    progress=document.createElement('div');progress.id='authLoading';progress.setAttribute('role','status');progress.setAttribute('aria-live','polite');
+    const bar=document.createElement('progress');bar.setAttribute('aria-label','Abriendo empresa');bar.style.cssText='width:100%;height:8px;accent-color:#ed0025';
+    const message=document.createElement('p');message.id='authLoadingMessage';
+    progress.append(bar,message);login.append(progress);
+   }
+   progress.hidden=false;
+   const loadingMessage=text=>{el('authLoadingMessage').textContent=text};
+   loadingMessage('Recuperando tu sesión y verificando la empresa…');
    try{
 
     const offline=!navigator.onLine;
@@ -1917,11 +1927,13 @@ window.addEventListener('pagehide',hideIntegratedPads);
      try{localStorage.setItem(baseCacheKey,String(Date.now()))}catch{}
      return fresh;
     }
+    loadingMessage(offline?'Abriendo los datos guardados en este dispositivo…':'Cargando productos, existencias y conteos. En bases grandes puede tardar un momento…');
     const [[catalog,stockRecords,barcodeRecords],[profiles,records]]=await Promise.all([
      readBase(),
      readCollections(['profiles','counts'],offline||quickStart?getDocsFromCache:getDocsFromServer)
     ]);
     cloudState(navigator.onLine);
+    loadingMessage('Preparando '+catalog.size+' productos para el inventario…');
     const barcodes=new Map(barcodeRecords.docs.map(item=>[item.id,item.data().barcode]));
     products=catalog.docs.map(entry=>({ ...entry.data(),cloudId:entry.id,barcode:barcodes.get(entry.id),unitsPerBox:entry.data().pack }));
     v36People=profiles.docs.map(entry=>({id:entry.id,name:entry.data().zone,archived:entry.data().detail==="archived"}));
@@ -2231,6 +2243,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     el('authInfo').textContent='Usa tu correo y contraseña de Firebase.';
     el('authError').textContent=error.code?'Firebase no pudo abrir la empresa ('+error.code+').':error.message;
    }finally{
+    progress.hidden=true;
     el('authPass').value='';
     loginButton.disabled=false;
    }
