@@ -497,6 +497,9 @@ body.v60Worker #menu .baseMenuButtons{grid-template-columns:repeat(2,minmax(0,1f
 .top:has(.headerCompany:not(:empty)){display:grid!important;grid-template-columns:26px minmax(65px,auto) minmax(50px,1fr) minmax(90px,1.4fr) 28px;gap:6px}
 .top:has(.headerCompany:not(:empty)) .headerBrand{min-width:0;width:100%;padding:0}
 @media(min-width:1100px){.top .headerCompany{font-size:34px}.top:has(.headerCompany:not(:empty)){grid-template-columns:30px 130px minmax(100px,1fr) minmax(300px,2fr) 36px}.top:has(.headerCompany:not(:empty)) .headerBrand{padding:0 65px}}
+</style><style id="header-position-fix">
+.top>#menuToggle{grid-column:1;grid-row:1}.top>#headerOwner{grid-column:2;grid-row:1}.top>#headerCompany{grid-column:3;grid-row:1}.top>.headerBrand{grid-column:4;grid-row:1}.top>.cloud{grid-column:5;grid-row:1}
+@media(min-width:1100px){.app>.top{width:100%;max-width:100%;min-width:0;box-sizing:border-box}.top .headerBrand .logo{white-space:nowrap}.top .desktopBrandSubtitle{white-space:normal;overflow-wrap:normal}}
 </style></head><body><div id="authGate"><div class="authCard"><div class="authBrand"><b>JU</b>DABINV</div><h2 id="authTitle">Configurar Superadministrador</h2><p class="authHint" id="authInfo">Primera apertura: crea tu cuenta principal. Se guardará únicamente en este navegador.</p><form id="authForm"><label for="authUser">Usuario</label><input id="authUser" required autocomplete="username" maxlength="40" placeholder="Tu nombre de usuario"><label for="authPass">Contraseña</label><input id="authPass" type="password" required autocomplete="new-password" placeholder="Tu contraseña"><div id="authConfirmWrap"><label for="authConfirm">Confirmar contraseña</label><input id="authConfirm" type="password" autocomplete="new-password" placeholder="Repite la contraseña"></div><label style="font-weight:normal"><input id="authShowPass" type="checkbox" style="display:inline;width:auto;margin-right:6px">Mostrar contraseña</label><p id="authError" class="authError" role="alert"></p><button class="authSubmit" id="authSubmit" type="submit">Crear cuenta de Superadministrador</button></form><p class="authHint">Importante: esta protección es local. No reemplaza la seguridad de Firebase ni impide que alguien con acceso al dispositivo manipule los archivos del navegador. No uses aquí una contraseña de otros servicios.</p></div></div><div class="app">
 <header class="top"><button class="hamb" id="menuToggle">☰</button><button type="button" class="headerOwner ownerButton" id="headerOwner" aria-label="Elegir conteo" aria-expanded="false">Principal ▾</button><span id="headerCompany" class="headerCompany"></span><div class="headerBrand"><div class="logo"><b>JU</b>DABINV</div><div class="sub">Inventario</div><div class="desktopBrandSubtitle">Sistema de inventario y conteo de productos</div></div><span class="cloud" title="Sin conexión a Firebase">☁✕</span></header><div id="menu" class="menu" style="border-bottom:1px solid #555"><div class="baseMenuButtons"><button id="importBase" type="button"><span aria-hidden="true">📥</span>Importar</button><button id="exportBase" type="button"><span aria-hidden="true">📤</span>Exportar</button><button id="viewBase" type="button"><span aria-hidden="true">📋</span>Existencias</button><button id="cloudLogout" type="button" disabled><span aria-hidden="true">🚪</span>Cerrar sesión</button></div><input type="file" id="baseFile" accept=".xlsx,.xls,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden></div>
 <button type="button" id="authLogoutWorker">🚪 Cerrar sesión de colaborador</button><div id="ownerPicker" class="ownerPicker hidden"><div class="ownerPickerTitle"><strong>Inventario asignado</strong><button id="closeOwnerPicker" type="button" aria-label="Cerrar selector">✕</button></div><div class="accountStrip" id="accountStrip" aria-label="Seleccionar conteo"></div><p class="menuAccountsHint">Selecciona un conteo o usa ⋮ para editar su nombre.</p></div>
@@ -1040,6 +1043,14 @@ $('workerPadKeys').onclick=e=>{
 
 ['boxes','units'].forEach(id=>{$(id).addEventListener('click',()=>{last=id;$('numberPad').classList.remove('hidden');$('padTarget').textContent=id==='boxes'?'Cajas':'Unidades';revealIntegratedPad('numberPad')});$(id).addEventListener('focus',()=>{last=id;$('numberPad').classList.remove('hidden');$('padTarget').textContent=id==='boxes'?'Cajas':'Unidades';revealIntegratedPad('numberPad')});$(id).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();advance()}})});
 function advance(){if(!commit(last))return;if(last==='boxes'){$('units').focus();$('units').select()}else{$('numberPad').classList.add('hidden');$('add').click()}}
+function revealQuantityEnd(input){
+ input.focus({preventScroll:true});
+ input.style.textAlign='left';
+ requestAnimationFrame(()=>{try{input.setSelectionRange(input.value.length,input.value.length)}catch{}input.scrollLeft=input.scrollWidth});
+}
+['padKeys','workerPadKeys','v29EditPadKeys'].forEach(id=>{
+ $(id).addEventListener('click',()=>{const field=id==='padKeys'?$(last):id==='workerPadKeys'?$(workerPadActive):$(v29ActiveEdit);revealQuantityEnd(field)});
+});
 $('padKeys').onclick=e=>{let k=e.target.closest('[data-pad]')?.dataset.pad;if(!k)return;let input=$(last);if(k==='Enter'){advance();return}if(k==='C'){input.value='';return}if(k==='='){commit(last);return}if(k==='⌫'){input.value=input.value.slice(0,-1);return}if((input.value===''||input.value==='0')&&/^[0-9]$/.test(k))input.value=k;else input.value+=k;input.focus({preventScroll:true})};
 
 $('add').onclick=async()=>{let p=product(),b=unitsOnly?0:evalMath($('boxes').value),u=evalMath($('units').value);if(!p)return alert('Selecciona un producto de la lista.');if(!Number.isInteger(b)||!Number.isInteger(u)||b<0||u<0||b+u===0)return alert('Ingresa cajas o unidades enteras y positivas.');const code=String(p.code).trim();
@@ -1051,7 +1062,10 @@ button.disabled = true;
 try {
  if(!saveCloudCount)throw Error('Inicia sesión para registrar el conteo.');
  cloudState(false);
- await saveCloudCount(p,b,u,v36Selected);
+ const pendingSave=saveCloudCount(p,b,u,v36Selected);
+ hideIntegratedPads();
+ $('search').focus({preventScroll:true});
+ await pendingSave;
  v36Switch(v36Selected);
 } catch (error) {
  $('demoStatus').textContent = error.message;
@@ -2159,7 +2173,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     }
     unlock({type,username:user.email});
     document.body.dataset.companyName=company.data().name;
-    const displayCompanyName=/^zeus$/i.test(company.data().name.trim())?'Zeuss':company.data().name;
+    const displayCompanyName=(/^zeus$/i.test(company.data().name.trim())?'Zeuss':company.data().name).replace(/distribusiones/gi,'Distribuciones');
     el('headerCompany').textContent=displayCompanyName;
     el('headerCompany').title=displayCompanyName;
     el('companyCurrent').textContent='Empresa: '+company.data().name;
