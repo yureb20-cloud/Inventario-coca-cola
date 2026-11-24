@@ -1071,8 +1071,13 @@ try {
  const pendingSave=saveCloudCount(p,b,u,v36Selected);
  hideIntegratedPads();
  $('search').focus({preventScroll:true});
+ $('search').scrollIntoView({block:'center',behavior:'instant'});
  await pendingSave;
  v36Switch(v36Selected);
+ requestAnimationFrame(()=>{
+  if(document.activeElement!==$('search'))return;
+  $('search').scrollIntoView({block:'center',behavior:'instant'});
+ });
 } catch (error) {
  $('demoStatus').textContent = error.message;
 } finally {
@@ -1575,6 +1580,7 @@ function revealIntegratedPad(id){
  // La ubicación del teclado es fija; solo se desplaza el formulario si hace falta.
  requestAnimationFrame(()=>{
   v37RefreshPad();
+  if($(id).classList.contains('hidden')||document.activeElement===$('search'))return;
   const field=id==='workerNumberPad'?$(workerPadActive):$(last);
   if(!field)return;
   const rect=field.getBoundingClientRect(),pad=$(id).getBoundingClientRect();
