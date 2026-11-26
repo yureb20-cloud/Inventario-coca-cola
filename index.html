@@ -506,15 +506,30 @@ body.v60Worker #menu .baseMenuButtons{grid-template-columns:repeat(2,minmax(0,1f
  body .app>.top .headerCompany{white-space:nowrap;overflow-wrap:normal;font-size:clamp(20px,1.8vw,34px)}
  body .app>.top .headerBrand{min-width:0;max-width:100%;box-sizing:border-box}
 }
+</style><style id="mobile-header-and-count-actions">
+#conteo #sync{display:none!important}
+#conteo .fixedActions{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1099px){
+ body:has(#conteo.hidden) .app>.top:has(.headerCompany:not(:empty)){grid-template-columns:30px minmax(0,1.3fr) minmax(0,1fr) 30px!important;gap:8px}
+ body:has(#conteo.hidden) .top>#menuToggle{grid-column:1;grid-row:1}
+ body:has(#conteo.hidden) .top>#headerCompany{grid-column:2;grid-row:1;white-space:normal;overflow-wrap:normal;word-break:normal;font-size:clamp(15px,4vw,22px);line-height:1.2}
+ body:has(#conteo.hidden) .top>.headerBrand{grid-column:3;grid-row:1;padding:0;min-width:0}
+ body:has(#conteo.hidden) .top>.cloud{grid-column:4;grid-row:1}
+ body:has(#conteo.hidden) .top .headerBrand .logo{font-size:clamp(16px,4.5vw,23px);white-space:nowrap}
+}
+</style><style id="profile-and-pending-status">
+.activeCountProfile{border-left:3px solid #eb0020;background:#281016;padding:8px 10px;margin:8px 0 2px;font-weight:bold;color:#fff;overflow-wrap:anywhere}
+.top>.cloud{display:flex;flex-direction:column;align-items:center;position:relative}
+.syncCountLabel{position:absolute;top:100%;right:0;white-space:nowrap;font:9px Arial,sans-serif;background:#111;border-radius:4px;padding:2px 3px;line-height:1.3}
 </style></head><body><div id="authGate"><div class="authCard"><div class="authBrand"><b>JU</b>DABINV</div><h2 id="authTitle">Configurar Superadministrador</h2><p class="authHint" id="authInfo">Primera apertura: crea tu cuenta principal. Se guardará únicamente en este navegador.</p><form id="authForm"><label for="authUser">Usuario</label><input id="authUser" required autocomplete="username" maxlength="40" placeholder="Tu nombre de usuario"><label for="authPass">Contraseña</label><input id="authPass" type="password" required autocomplete="new-password" placeholder="Tu contraseña"><div id="authConfirmWrap"><label for="authConfirm">Confirmar contraseña</label><input id="authConfirm" type="password" autocomplete="new-password" placeholder="Repite la contraseña"></div><label style="font-weight:normal"><input id="authShowPass" type="checkbox" style="display:inline;width:auto;margin-right:6px">Mostrar contraseña</label><p id="authError" class="authError" role="alert"></p><button class="authSubmit" id="authSubmit" type="submit">Crear cuenta de Superadministrador</button></form><p class="authHint">Importante: esta protección es local. No reemplaza la seguridad de Firebase ni impide que alguien con acceso al dispositivo manipule los archivos del navegador. No uses aquí una contraseña de otros servicios.</p></div></div><div class="app">
 <header class="top"><button class="hamb" id="menuToggle">☰</button><button type="button" class="headerOwner ownerButton" id="headerOwner" aria-label="Elegir conteo" aria-expanded="false">Principal ▾</button><span id="headerCompany" class="headerCompany"></span><div class="headerBrand"><div class="logo"><b>JU</b>DABINV</div><div class="sub">Inventario</div><div class="desktopBrandSubtitle">Sistema de inventario y conteo de productos</div></div><span class="cloud" title="Sin conexión a Firebase">☁✕</span></header><div id="menu" class="menu" style="border-bottom:1px solid #555"><div class="baseMenuButtons"><button id="importBase" type="button"><span aria-hidden="true">📥</span>Importar</button><button id="exportBase" type="button"><span aria-hidden="true">📤</span>Exportar</button><button id="viewBase" type="button"><span aria-hidden="true">📋</span>Existencias</button><button id="cloudLogout" type="button" disabled><span aria-hidden="true">🚪</span>Cerrar sesión</button></div><input type="file" id="baseFile" accept=".xlsx,.xls,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" hidden></div>
 <button type="button" id="authLogoutWorker">🚪 Cerrar sesión de colaborador</button><div id="ownerPicker" class="ownerPicker hidden"><div class="ownerPickerTitle"><strong>Inventario asignado</strong><button id="closeOwnerPicker" type="button" aria-label="Cerrar selector">✕</button></div><div class="accountStrip" id="accountStrip" aria-label="Seleccionar conteo"></div><p class="menuAccountsHint">Selecciona un conteo o usa ⋮ para editar su nombre.</p></div>
 <nav class="bottom"><button class="active" data-page="conteo"><span>⌂</span>Conteo</button><button data-page="consolidado"><span>▱</span>Consolidado</button><button data-page="colaboradores"><span>♧</span>Colaboradores</button><button data-page="ajustes"><span>⚙</span>Ajustes</button></nav>
 <div id="accountMenu" class="accountMenu hidden"><button id="accountRename" type="button">✎ Editar nombre</button><button id="accountArchive" type="button" class="danger">Eliminar perfil</button></div>
-<div id="baseManager" class="hidden"><div class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 style="margin:3px 0">Carga base</h2><button id="closeBase" type="button">✕ Cerrar</button></div><p class="note" id="baseInfo"></p><div class="baseForm"><div><label>CÓDIGO<input id="baseCode" autocomplete="off" placeholder="Código"></label></div><div><label>CÓDIGO DE BARRAS<input id="baseBarcode" autocomplete="off" placeholder="Código de barras"></label></div><div class="wide"><label>NOMBRE DEL PRODUCTO<input id="baseName" autocomplete="off" placeholder="Nombre del producto"></label></div><div><label>UNIDADES POR CAJA<input id="basePack" type="number" inputmode="numeric" min="1" placeholder="Ej. 30"></label></div><div><label>EXISTENCIAS (UNIDADES)<input id="baseStock" type="number" placeholder="0"></label></div></div><div class="baseFormActions"><button id="baseSave" type="button">💾 Guardar producto</button><button id="baseReset" type="button">Limpiar campos</button></div></div><div class="panel"><div class="label">Buscar en la base de productos</div><input id="baseSearch" class="baseSearchField" placeholder="Código, barras o nombre..."><p class="note">Desliza la tabla horizontalmente ↔ para consultar todas las columnas.</p><div class="tablewrap baseTableScroll" style="margin:0"><table><thead><tr><th>Código</th><th>Código de barras</th><th>Producto</th><th>Und./caja</th><th>Existencias (UND)</th><th>Acciones</th></tr></thead><tbody id="baseRows"></tbody></table></div></div></div><div id="conteo"><div class="panel"><div class="label">Código / Nombre</div><div class="searchrow"><input id="search" autocomplete="off" placeholder="▥  Escanear o buscar producto..."><button class="camera" id="scan">📷</button></div><div id="suggestions" class="suggestions hidden" role="listbox" aria-label="Productos encontrados"></div><p id="found" class="note"></p><div class="quant"><div><label>Cajas</label><input id="boxes" class="num mathfield" type="text" inputmode="none" autocomplete="off" value=""></div><div><label>Unidades</label><input id="units" class="num mathfield" type="text" inputmode="none" autocomplete="off" value=""></div><button class="calcbutton" id="calcToggle" aria-label="Calculadora">▦</button><button id="add" class="primary addSquare" aria-label="Agregar al conteo">+</button></div><div id="numberPad" class="numberPad hidden"><div class="padTitle">Teclado numérico · <span id="padTarget">Cajas</span></div><div class="padGrid" id="padKeys"></div></div></div>
+<div id="baseManager" class="hidden"><div class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 style="margin:3px 0">Carga base</h2><button id="closeBase" type="button">✕ Cerrar</button></div><p class="note" id="baseInfo"></p><div class="baseForm"><div><label>CÓDIGO<input id="baseCode" autocomplete="off" placeholder="Código"></label></div><div><label>CÓDIGO DE BARRAS<input id="baseBarcode" autocomplete="off" placeholder="Código de barras"></label></div><div class="wide"><label>NOMBRE DEL PRODUCTO<input id="baseName" autocomplete="off" placeholder="Nombre del producto"></label></div><div><label>UNIDADES POR CAJA<input id="basePack" type="number" inputmode="numeric" min="1" placeholder="Ej. 30"></label></div><div><label>EXISTENCIAS (UNIDADES)<input id="baseStock" type="number" placeholder="0"></label></div></div><div class="baseFormActions"><button id="baseSave" type="button">💾 Guardar producto</button><button id="baseReset" type="button">Limpiar campos</button></div></div><div class="panel"><div class="label">Buscar en la base de productos</div><input id="baseSearch" class="baseSearchField" placeholder="Código, barras o nombre..."><p class="note">Desliza la tabla horizontalmente ↔ para consultar todas las columnas.</p><div class="tablewrap baseTableScroll" style="margin:0"><table><thead><tr><th>Código</th><th>Código de barras</th><th>Producto</th><th>Und./caja</th><th>Existencias (UND)</th><th>Acciones</th></tr></thead><tbody id="baseRows"></tbody></table></div></div></div><div id="conteo"><div class="panel"><div class="label">Código / Nombre</div><div class="searchrow"><input id="search" autocomplete="off" placeholder="▥  Escanear o buscar producto..."><button class="camera" id="scan">📷</button></div><div id="suggestions" class="suggestions hidden" role="listbox" aria-label="Productos encontrados"></div><p id="found" class="note"></p><div id="activeCountProfile" class="activeCountProfile" role="status">Contando en: Principal</div><div class="quant"><div><label>Cajas</label><input id="boxes" class="num mathfield" type="text" inputmode="none" autocomplete="off" value=""></div><div><label>Unidades</label><input id="units" class="num mathfield" type="text" inputmode="none" autocomplete="off" value=""></div><button class="calcbutton" id="calcToggle" aria-label="Calculadora">▦</button><button id="add" class="primary addSquare" aria-label="Agregar al conteo">+</button></div><div id="numberPad" class="numberPad hidden"><div class="padTitle">Teclado numérico · <span id="padTarget">Cajas</span></div><div class="padGrid" id="padKeys"></div></div></div>
 <div class="panel hidden" id="calculator"><div class="label">Calculadora</div><input id="expr" class="num" placeholder="0"><div class="calcgrid" id="calcKeys"></div><p class="note">El resultado se coloca en el último campo seleccionado.</p></div>
 <div class="sectionhead"><span id="recentCountTotals" class="recentCountTotals"></span></div><div class="countTools" data-count-tools="recent"><input type="search" aria-label="Buscar producto contado" placeholder="Buscar…"><div class="countFilters"><button type="button" data-count-filter="todos" aria-pressed="true">Todos</button><button type="button" data-count-filter="sobrantes" aria-pressed="false">Sobrantes</button><button type="button" data-count-filter="faltantes" aria-pressed="false">Faltantes</button><button type="button" data-count-filter="iguales" aria-pressed="false">Iguales</button></div><button id="viewAll" type="button" aria-label="Ver todos los conteos" title="Ver todos los conteos">↗</button></div><div class="tablewrap countTable"><table><thead><tr><th>Código</th><th>Producto</th><th>CJ / UND</th><th id="countBase">Base</th><th id="countDifference">Dif.</th></tr></thead><tbody id="countRows"></tbody></table></div>
-<div class="actions fixedActions"><button id="sync" class="blue"><span>☁⇧</span>Sincronizar<br>en la nube</button><button id="export" class="green"><span>📗</span>Exportar<br>Excel</button><button id="clear"><span>🗑</span>Limpiar<br>conteo</button><button id="finishCurrentCount" type="button"><span>✓</span>Finalizar<br>conteo</button></div></div>
+<div class="actions fixedActions"><button id="sync" class="blue" hidden><span>☁⇧</span>Sincronizar<br>en la nube</button><button id="export" class="green"><span>📗</span>Exportar<br>Excel</button><button id="clear"><span>🗑</span>Limpiar<br>conteo</button><button id="finishCurrentCount" type="button"><span>✓</span>Finalizar<br>conteo</button></div></div>
 <div id="consolidado" class="hidden">
 <div class="panel v46Header"><h2>Consolidado</h2><div class="compareTabs v46Tabs"><button id="tabWorkers" class="chosen" type="button">Conteos</button><button id="tabStock" type="button">General</button><button type="button" id="toggleWorker" aria-expanded="false" aria-controls="workerEntry">＋ Agregar conteo ▾</button></div></div>
 <div class="panel compactEntry" id="workerEntry" hidden><div class="label">Agregar conteo de colaborador</div><div class="entry"><select id="workerName" aria-label="Seleccionar colaborador"><option value="">Sin colaboradores creados</option></select><div class="workerPicker"><input id="workerProductSearch" type="text" autocomplete="off" placeholder="Buscar código o producto..." aria-label="Buscar producto"><div id="workerProductSuggestions" class="suggestions hidden"></div><select id="workerProduct" class="hidden" aria-label="Producto seleccionado"></select></div><input id="workerBoxes" type="text" inputmode="none" autocomplete="off" readonly value="0" placeholder="Cajas" aria-label="Cajas"><input id="workerUnits" type="text" inputmode="none" autocomplete="off" readonly value="0" placeholder="Unidades" aria-label="Unidades"></div><div id="workerNumberPad" class="numberPad hidden"><div class="padTitle">Teclado numérico · <span id="workerPadTarget">Cajas</span></div><div class="padGrid" id="workerPadKeys"></div></div><button id="addWorker" class="primary">+ Agregar conteo de colaborador</button></div>
@@ -545,7 +560,7 @@ body.v60Worker #menu .baseMenuButtons{grid-template-columns:repeat(2,minmax(0,1f
 </div>
 <div id="allCompareView" class="hidden" role="dialog" aria-modal="true" aria-label="Comparativo completo"><div class="allCountsTop"><h2 id="allCompareTitle">Consolidado completo</h2><button id="closeAllCompare" type="button">✕ Cerrar</button></div><div class="allCountsBody"><p id="allCompareInfo" class="note"></p><div class="tablewrap comparison v16Table allCompareTable"><table><thead id="allCompareHead"></thead><tbody id="allCompareRows"></tbody></table></div></div></div>
 <div id="allCountsView" class="hidden" role="dialog" aria-modal="true" aria-label="Todos los conteos"><div class="allCountsTop"><h2>Todos los conteos</h2><button id="closeAllCounts" type="button">✕ Cerrar</button></div><div class="allCountsBody"><p id="allCountsOwner" class="note"></p><p id="allCountsTotal" class="note"></p><div class="countTools" data-count-tools="all"><input type="search" aria-label="Buscar producto contado" placeholder="Buscar…"><div class="countFilters"><button type="button" data-count-filter="todos" aria-pressed="true">Todos</button><button type="button" data-count-filter="sobrantes" aria-pressed="false">Sobrantes</button><button type="button" data-count-filter="faltantes" aria-pressed="false">Faltantes</button><button type="button" data-count-filter="iguales" aria-pressed="false">Iguales</button></div></div><div class="tablewrap"><table><thead><tr><th>Código</th><th>Producto</th><th>CJ / UND</th><th id="allCountBase">Base</th><th id="allCountDifference">Dif.</th></tr></thead><tbody id="allCountsRows"></tbody></table></div></div></div>
-<div id="v18Modal" class="v18Overlay hidden" role="dialog" aria-modal="true" aria-labelledby="v18EditTitle"><div class="v18Dialog"><h2 id="v18EditTitle">Editar conteo</h2><div id="v18EditWho" style="font-weight:bold"></div><p id="v18EditProduct" style="color:#bbb;margin:5px 0 15px"></p><label class="v18Field" for="v18EditBoxes">CJ · CAJAS</label><input id="v18EditBoxes" type="text" inputmode="numeric" autocomplete="off"><label class="v18Field" for="v18EditUnits">UND · UNIDADES</label><input id="v18EditUnits" type="text" inputmode="numeric" autocomplete="off"><div id="v29EditPad" class="numberPad"><div class="padTitle">Teclado numérico · <span id="v29EditPadTarget">Cajas</span></div><div class="padGrid" id="v29EditPadKeys"></div></div><p class="note">Si ambas cantidades quedan en cero, el colaborador no aparecerá en el detalle.</p><div class="v18Buttons"><button type="button" id="v18Cancel">Cancelar</button><button type="button" id="v18Save">Guardar</button></div></div></div>
+<div id="v18Modal" class="v18Overlay hidden" role="dialog" aria-modal="true" aria-labelledby="v18EditTitle"><div class="v18Dialog"><h2 id="v18EditTitle">Editar conteo</h2><div id="v18EditWho" style="font-weight:bold"></div><p id="v18EditProduct" style="color:#bbb;margin:5px 0 15px"></p><label class="v18Field" for="v18EditBoxes">CJ · CAJAS</label><input id="v18EditBoxes" type="text" inputmode="none" autocomplete="off"><label class="v18Field" for="v18EditUnits">UND · UNIDADES</label><input id="v18EditUnits" type="text" inputmode="none" autocomplete="off"><div id="v29EditPad" class="numberPad"><div class="padTitle">Teclado numérico · <span id="v29EditPadTarget">Cajas</span></div><div class="padGrid" id="v29EditPadKeys"></div></div><p class="note">Si ambas cantidades quedan en cero, el colaborador no aparecerá en el detalle.</p><div class="v18Buttons"><button type="button" id="v18Cancel">Cancelar</button><button type="button" id="v18Save">Guardar</button></div></div></div>
 <script>
 /* V57: separación local por empresa. Se intercambian únicamente las claves de inventario; credenciales aparte. */
 window.JUDA_COMPANY_KEY='judabinv_v57_companies';
@@ -610,7 +625,7 @@ function v47RefreshWorkerPicker(){
 function v36ActiveName(){return v36Selected==='principal'?'Principal':(v36People.find(x=>x.id===v36Selected)?.name||'Principal')}
 function v36ActiveRows(){if(v36Selected==='principal')return principalCounts.map(x=>({...x}));const person=v36People.find(x=>x.id===v36Selected);return person?workerRows.filter(w=>w.personId===person.id||(!w.personId&&w.person===person.name)).map(w=>({...w})):[]}
 function v36RenderAccounts(){const strip=$('accountStrip');const scroll=strip.scrollLeft;strip.innerHTML='';const create=(id,name)=>{if(role==='worker'&&id==='principal')return;const wrapper=document.createElement('div');wrapper.className='accountItem'+(v36Selected===id?' current':'');const select=document.createElement('button');select.className='accountSelect';select.type='button';select.textContent=name;select.onclick=()=>v36Switch(id);wrapper.appendChild(select);if(id!=='principal'){const dots=document.createElement('button');dots.className='accountDots';dots.type='button';dots.textContent='⋮';dots.setAttribute('aria-label','Opciones de '+name);dots.onclick=e=>{e.stopPropagation();v36OpenMenu(id,dots)};wrapper.appendChild(dots)}strip.appendChild(wrapper)};create('principal','Principal');v36People.forEach(p=>create(p.id,p.name));const plus=document.createElement('button');plus.id='accountAdd';plus.className='accountAdd';plus.type='button';plus.textContent='+ Agregar conteo';plus.setAttribute('aria-label','Agregar conteo');plus.onclick=v36Add;strip.appendChild(plus);strip.scrollLeft=scroll}
-function v36Switch(id){if(role==='worker'&&id==='principal'&&v36People.length)return;if(id!=='principal'&&!v36People.some(p=>p.id===id))return;v36CloseMenu();v36Selected=id;if(activeProfileStorageKey){try{localStorage.setItem(activeProfileStorageKey,id)}catch{}}base=v36ActiveName();counts=consolidateCounts(v36ActiveRows());$('numberPad').classList.add('hidden');$('search').value='';$('boxes').value='';$('units').value='';$('found').textContent='';$('suggestions').classList.add('hidden');v36RenderAccounts();$('headerOwner').textContent=v36ActiveName()+' ▾';$('ownerPicker').classList.add('hidden');$('headerOwner').setAttribute('aria-expanded','false');$('menu').classList.remove('open');render()}
+function v36Switch(id){if(role==='worker'&&id==='principal'&&v36People.length)return;if(id!=='principal'&&!v36People.some(p=>p.id===id))return;v36CloseMenu();v36Selected=id;const profileLabel=$('activeCountProfile');if(profileLabel)profileLabel.textContent='Contando en: '+v36ActiveName();if(activeProfileStorageKey){try{localStorage.setItem(activeProfileStorageKey,id)}catch{}}base=v36ActiveName();counts=consolidateCounts(v36ActiveRows());$('numberPad').classList.add('hidden');$('search').value='';$('boxes').value='';$('units').value='';$('found').textContent='';$('suggestions').classList.add('hidden');v36RenderAccounts();$('headerOwner').textContent=v36ActiveName()+' ▾';$('ownerPicker').classList.add('hidden');$('headerOwner').setAttribute('aria-expanded','false');$('menu').classList.remove('open');render()}
 let writeCloudProfile; let archiveCloudProfile;
 let profileSaving=false;
 async function saveProfile(profile){
@@ -682,7 +697,12 @@ function load(){v47RefreshWorkerPicker();try{principalCounts=consolidateCounts(J
 function save(){counts.forEach(c=>Object.assign(c,normalizedQty(c.boxes,c.units,packFor(c))));if(v36Selected==='principal'){principalCounts=counts.map(c=>({...c}));localStorage.setItem(prefix+'Inventario asignado',JSON.stringify(principalCounts))}else{const person=v36People.find(x=>x.id===v36Selected);if(person){const old=workerRows.filter(w=>w.personId===person.id||(!w.personId&&w.person===person.name));workerRows=workerRows.filter(w=>!old.includes(w));counts.forEach(c=>workerRows.push({...c,id:old.find(w=>String(w.code)===String(c.code))?.id||'w'+Date.now()+Math.random().toString(36).slice(2),personId:person.id,person:person.name}));localStorage.setItem(v14key,JSON.stringify({workers:workerRows,stocks}))}}render()}
 function cloudState(ok){
  const indicator=document.querySelector('.cloud');
- indicator.textContent=ok?'☁✓':'☁✕';
+ const pending=Number(indicator.dataset.pending)||0;
+ indicator.replaceChildren();
+ const icon=document.createElement('span');icon.textContent=ok&&!pending?'☁✓':'☁✕';
+ const label=document.createElement('small');label.className='syncCountLabel';label.textContent=pending?pending+' pendientes':!navigator.onLine?'Sin conexión':ok?'Sincronizado':'Verificando';
+ indicator.append(icon,label);
+ indicator.setAttribute('aria-label',label.textContent);
  indicator.title=ok?'Última operación confirmada por Firestore':'Sin confirmación de Firestore';
  indicator.style.color=ok?'#63e889':'#ff7777';
 }
@@ -843,7 +863,7 @@ function openEdit(kind,id){
  $('v18EditBoxes').value=Number(row.boxes)||0;
  $('v18EditUnits').value=Number(row.units)||0;
  $('v18Modal').classList.remove('hidden');
- v29SelectEditField('v18EditBoxes');
+ v29SelectEditField(unitsOnly?'v18EditUnits':'v18EditBoxes');
 }
 // V29: teclado propio en edición de principal y colaboradores.
 let v29ActiveEdit='v18EditBoxes';
@@ -895,7 +915,9 @@ $('v18Save').onclick=async()=>{
   counts=consolidateCounts(v36ActiveRows());
   $('v18Cancel').click();
   render();
-  $('demoStatus').textContent='Corrección guardada en Firestore.';
+  row.pending=true;
+  cloudState(false);
+  $('demoStatus').textContent='Corrección guardada en este dispositivo. Pendiente de confirmar en Firebase.';
  }catch(error){
   alert(error.message);
  }finally{
@@ -1059,7 +1081,7 @@ function revealQuantityEnd(input){
 });
 $('padKeys').onclick=e=>{let k=e.target.closest('[data-pad]')?.dataset.pad;if(!k)return;let input=$(last);if(k==='Enter'){advance();return}if(k==='C'){input.value='';return}if(k==='='){commit(last);return}if(k==='⌫'){input.value=input.value.slice(0,-1);return}if((input.value===''||input.value==='0')&&/^[0-9]$/.test(k))input.value=k;else input.value+=k;input.focus({preventScroll:true})};
 
-$('add').onclick=async()=>{let p=product(),b=unitsOnly?0:evalMath($('boxes').value),u=evalMath($('units').value);if(!p)return alert('Selecciona un producto de la lista.');if(!Number.isInteger(b)||!Number.isInteger(u)||b<0||u<0||b+u===0)return alert('Ingresa cajas o unidades enteras y positivas.');const code=String(p.code).trim();
+$('add').onclick=async()=>{let p=product(),b=unitsOnly?0:evalMath($('boxes').value),u=evalMath($('units').value);if(teamStatuses[v36Selected]==='Finalizado')return alert('Este conteo está finalizado. Pulsa Reabrir conteo para agregar registros.');if(!p)return alert('Selecciona un producto de la lista.');if(!Number.isInteger(b)||!Number.isInteger(u)||b<0||u<0||b+u===0)return alert('Ingresa cajas o unidades enteras y positivas.');const code=String(p.code).trim();
 if(b>0&&u>0&&packFor(p)===1)return alert('Este producto tiene 1 unidad por caja en la carga base. Verifica su empaque antes de mezclar cajas y unidades.');
 ({boxes:b,units:u}=normalizedQty(b,u,packFor(p)));
 const button = $('add');
@@ -1407,7 +1429,7 @@ function v54RenderTeamModalRows(){
  $('teamModalBody').innerHTML=rows.length?`<table><thead><tr><th>Código</th><th>Producto</th><th>Cajas / Und.</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${safeText(r.code)}</td><td>${safeText(r.name||products.find(p=>String(p.code)===String(r.code))?.name||'')}</td><td>${Number(r.boxes)||0} / ${Number(r.units)||0}</td></tr>`).join('')}</tbody></table>`:'<p class="note">No se encontraron productos.</p>';
 }
 $('teamModalSearch').addEventListener('input',v54RenderTeamModalRows);
-function v54UpdateFinishButton(){const b=$('finishCurrentCount');if(!b)return;const done=teamStatuses[v36Selected]==='Finalizado';b.classList.toggle('isFinished',done);b.innerHTML=done?'<span>↶</span>Reabrir<br>conteo':'<span>✓</span>Finalizar<br>conteo'}
+function v54UpdateFinishButton(){const b=$('finishCurrentCount');if(!b)return;const done=teamStatuses[v36Selected]==='Finalizado';$('add').disabled=done;$('add').title=done?'Reabre el conteo para agregar registros':'Agregar al conteo';b.classList.toggle('isFinished',done);b.innerHTML=done?'<span>↶</span>Reabrir<br>conteo':'<span>✓</span>Finalizar<br>conteo'}
 $('finishCurrentCount').onclick=async()=>{
  const button=$('finishCurrentCount'),done=teamStatuses[v36Selected]==='Finalizado',name=v36ActiveName();
  if(button.disabled||!confirm(done?'¿Reabrir el conteo de '+name+'?':'¿Finalizar el conteo de '+name+'? Podrás reabrirlo después.'))return;
@@ -1972,6 +1994,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     const profilesRef=collection(db,'judabinvCompanies',id,'profiles');
     saveProfileStatus=async(profileId,done)=>{
      const key=profileId==='principal'?principalId:profileId;
+     if(done){await flushCounts();if(queued.some(entry=>entry.row.zoneId===key))throw Error('Hay registros pendientes de sincronizar en este perfil. Conéctate y espera a que se sincronicen antes de finalizar.');}
      const ref=doc(profilesRef,key);
      await runTransaction(db,async transaction=>{
       const snapshot=await transaction.get(ref);
@@ -2074,19 +2097,12 @@ window.addEventListener('pagehide',hideIntegratedPads);
      });
     };
     updateCloudCount=async(row,boxes,units)=>{
-     try{
-      const ref=doc(countsRef,row.id);
-      await runTransaction(db,async transaction=>{
-       const current=(await transaction.get(ref)).data();
-       if(!current||current.version!==row.version)throw Error('El conteo cambió. Recarga antes de corregirlo.');
-       const total=boxes*current.pack+units;
-       if(!Number.isSafeInteger(total)||total<0||total>1000000000)throw Error('La cantidad está fuera del rango permitido.');
-       transaction.update(ref,{boxes,units,total,version:current.version+1,updatedAt:serverTimestamp()});
-      });
-     }catch(error){
-      if(error.code==='permission-denied')throw Error('Firestore no autorizó la corrección con las reglas publicadas.');
-      throw error;
-     }
+     const total=boxes*row.pack+units;
+     if(!Number.isSafeInteger(total)||total<0||total>1000000000)throw Error('La cantidad está fuera del rango permitido.');
+     const entry={id:row.id,kind:'edit',row:{...row,boxes,units,total,version:row.version+1},baseVersion:row.version,at:Date.now()};
+     storeQueue([...queued,entry]);
+     showPending();
+     setTimeout(()=>void flushCounts(),0);
     };
     const queueKey='judabinv-v64-pending:'+id+':'+user.uid;
     let queued=JSON.parse(localStorage.getItem(queueKey)??'[]');
@@ -2096,6 +2112,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
      queued=next;
     }
     function showPending(error=''){
+     document.querySelector('.cloud').dataset.pending=String(queued.length);
      cloudState(!queued.length&&navigator.onLine);
      const status=el('demoStatus');
      if(status)status.textContent=error||(queued.length
@@ -2105,6 +2122,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     function showQueued(entry){
      const target=entry.row.zoneId===principalId?principalCounts:workerRows;
      const existing=target.find(row=>row.id===entry.id);
+     if(existing&&entry.kind==='edit')Object.assign(existing,entry.row,{pending:true});
      if(!existing)target.push({...entry.row,id:entry.id,personId:entry.row.zoneId,person:entry.row.zoneName,pending:true,localCountedAt:entry.at});
     }
     async function flushCounts(){
@@ -2118,11 +2136,21 @@ window.addEventListener('pagehide',hideIntegratedPads);
         if(principal.exists())zones.set(principalId,principal.data().zone);
         else await writeCloudProfile('Principal',principalId);
        }
+       if(entry.kind==='edit'){
+        await runTransaction(db,async transaction=>{
+         const current=(await transaction.get(ref)).data();
+         const desired=entry.row;
+         if(current?.version===desired.version&&current.boxes===desired.boxes&&current.units===desired.units&&current.total===desired.total)return;
+         if(!current||current.version!==entry.baseVersion)throw Error('Hay una corrección pendiente que coincide con un cambio de otro dispositivo. Se conserva en este celular para revisión.');
+         transaction.update(ref,{boxes:desired.boxes,units:desired.units,total:desired.total,version:desired.version,updatedAt:serverTimestamp()});
+        });
+       }else{
        const snapshot=await getDocFromServer(ref);
        if(!snapshot.exists()){
         await setDoc(ref,{...entry.row,createdAt:serverTimestamp(),updatedAt:serverTimestamp()});
        }
-       storeQueue(queued.filter(item=>item.id!==entry.id));
+       }
+       storeQueue(queued.filter(item=>item!==entry));
        const row=[...principalCounts,...workerRows].find(item=>item.id===entry.id);
        if(row)row.pending=false;
        if(v36Selected==='principal'||v36People.some(profile=>profile.id===v36Selected)){
@@ -2132,12 +2160,13 @@ window.addEventListener('pagehide',hideIntegratedPads);
        showPending();
       }
      }catch(error){
-      showPending(error.code==='permission-denied'
+      showPending(error.message?.includes('corrección pendiente')?error.message:error.code==='permission-denied'
        ?'Firestore rechazó un conteo. Sigue guardado en este dispositivo.'
        :'Envío pendiente. El conteo sigue guardado en este dispositivo.');
      }finally{flushing=false}
     }
     saveCloudCount=async(product,boxes,units,zoneId)=>{
+     if(teamStatuses[zoneId]==='Finalizado')throw Error('Este conteo está finalizado. Reábrelo para agregar registros.');
      if(zoneId==='principal'){
       if(type!=='admin')throw Error('Selecciona un perfil de conteo.');
       zoneId=principalId;
@@ -2195,7 +2224,7 @@ window.addEventListener('pagehide',hideIntegratedPads);
     try{rememberedProfile=localStorage.getItem(activeProfileStorageKey)}catch{}
     const availableProfile=rememberedProfile==='principal'?type==='admin':v36People.some(profile=>profile.id===rememberedProfile);
     if(rememberedProfile&&!availableProfile){
-     v36Selected='unavailable';counts=[];render();v36RenderAccounts();
+     v36Selected='unavailable';counts=[];$('activeCountProfile').textContent='Selecciona un perfil para contar';render();v36RenderAccounts();
      el('headerOwner').textContent='Selecciona un perfil ▾';
      el('ownerPicker').classList.remove('hidden');
      el('demoStatus').textContent='El perfil anterior no está disponible. Selecciona dónde continuar contando.';
