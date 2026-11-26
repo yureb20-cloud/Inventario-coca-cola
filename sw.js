@@ -1,6 +1,6 @@
 const prefix = 'judabinv-shell:' + self.registration.scope + ':';
 // Incrementa esta versión al publicar cambios en el HTML o sus archivos de instalación.
-const cacheName = prefix + '34';
+const cacheName = prefix + '35';
 const shell = new URL('./index.html', self.registration.scope).href;
 const assets = [shell, './manifest.webmanifest', './judabinv-192.png?v=jdb1', './judabinv-512.png?v=jdb1'];
 
